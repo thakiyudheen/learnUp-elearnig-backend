@@ -7,13 +7,15 @@ import { jwtMiddleware } from "../../_lib/common/middleWares/jwtMimiddleWare";
 
 export const routes = ( Dependencies : IDependecies ) => {
     const {} = Dependencies 
-    const { sendMail } = controller( Dependencies ) ;
+    const { getAllInstructors , getAllstudents } = controller( Dependencies ) ;
 
     const router = Router()
 
-    // send Email --------------------------
-    router.route('/email-verification/:email').get(  sendMail )
-
+    // get all students --------------------------
+    router.route('/getAll-students').get( jwtMiddleware , getAllstudents )
+    
+    // get all students --------------------------
+    router.route('/getAll-instructors').get( jwtMiddleware , getAllInstructors )
 
     return router
 }
