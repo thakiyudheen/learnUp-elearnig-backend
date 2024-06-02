@@ -12,10 +12,10 @@ export const getUserDataUseCase = (Dependencies : IDependecies) => {
 
     return {
 
-        execute: async ( userId : string ) => { 
+        execute: async ( _id : string ) => { 
             try {
 
-                return await getUserData( userId )  
+                return await getUserData( _id )  
 
             } catch ( error : any ) {
 
