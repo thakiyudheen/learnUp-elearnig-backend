@@ -6,7 +6,7 @@ export const getUserData = async  ( userId : string ) : Promise < userEntity | n
 
     try {
        
-        const user = await User.findById({ userId }) ;
+        const user = await User.findById( userId ) ;
        
 
         if( user ){ 
