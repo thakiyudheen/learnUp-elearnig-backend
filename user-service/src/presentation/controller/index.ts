@@ -1,9 +1,12 @@
 import { Dependencies } from "../../_boot/dependecies";
 import { IDependecies } from "../../application/Interfases/IDependencies";
-import { sendVerificationMailController } from "./sendVerificationMailController";
+import { getAllInstructorsController } from "./getAllinstructors";
+import { getAllStudentsController } from "./getAllstudents";
+
 
 export const controller = ( Dependencies : IDependecies ) => {
     return {
-        sendMail : sendVerificationMailController( Dependencies )
+        getAllstudents : getAllStudentsController( Dependencies ),
+        getAllInstructors : getAllInstructorsController( Dependencies )
     }
 }
