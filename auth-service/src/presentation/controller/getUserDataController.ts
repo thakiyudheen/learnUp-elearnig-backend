@@ -25,7 +25,7 @@ export const getUserDataController = ( Dependencies : IDependecies ) => {
                 return  res.status(200).json( { 
 
                     success: false,
-                    data: user,
+                    data: {},
                     message: " filed when getting user Data ", 
 
                 } )
@@ -34,7 +34,7 @@ export const getUserDataController = ( Dependencies : IDependecies ) => {
             return res.status(200).json( { 
 
                     success: true,
-                    data: {},
+                    data: user,
                     message: " Getting user successfully ",
                      
             } )
