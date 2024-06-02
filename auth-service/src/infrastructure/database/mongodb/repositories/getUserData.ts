@@ -2,7 +2,7 @@ import { userEntity } from "@/domain/entities/UserEntity";
 import { User } from "../models";
 
 
-export const getUserData = async  ( userId : string ) : Promise < userEntity | null > => {
+export const getUser = async  ( userId : string ) : Promise < userEntity | null > => {
 
     try {
        

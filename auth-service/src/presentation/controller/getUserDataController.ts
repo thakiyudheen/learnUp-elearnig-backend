@@ -19,7 +19,7 @@ export const getUserDataController = ( Dependencies : IDependecies ) => {
 
             const { _id } = req.user ;
 
-            const  user = await getUserDataUseCase( Dependencies ).execute( _id )
+            const  user = await getUserDataUseCase( Dependencies ).execute( _id.toString() )
 
             if(!user){
               return res.status(200).json( { 
