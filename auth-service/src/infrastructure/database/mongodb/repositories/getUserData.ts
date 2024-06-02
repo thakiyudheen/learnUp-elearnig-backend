@@ -2,11 +2,11 @@ import { userEntity } from "@/domain/entities/UserEntity";
 import { User } from "../models";
 
 
-export const getUserData = async  ( userId : string ) : Promise < userEntity | null > => {
+export const getUserData = async  ( _id : string ) : Promise < userEntity | null > => {
 
     try {
        
-        const user = await User.findById({ userId }) ;
+        const user = await User.findById( _id ) ;
        
 
         if( user ){ 
