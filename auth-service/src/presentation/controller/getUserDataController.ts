@@ -22,20 +22,22 @@ export const getUserDataController = ( Dependencies : IDependecies ) => {
             const  user = await getUserDataUseCase( Dependencies ).execute( _id )
 
             if(!user){
-              return res.status(200).json( { 
-
-                    success: true,
-                    data: {},
-                    message: " Getting user successfully ", 
-                } )
-            }
-           return  res.status(200).json( { 
+                return  res.status(200).json( { 
 
                     success: false,
                     data: user,
                     message: " filed when getting user Data ", 
 
                 } )
+            }
+          
+            return res.status(200).json( { 
+
+                    success: true,
+                    data: {},
+                    message: " Getting user successfully ",
+                     
+            } )
 
         } catch ( error : any ) {
            
