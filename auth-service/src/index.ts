@@ -5,8 +5,9 @@ import { startConsumer } from "./_boot/consumer";
 (async () => {
     try{
         server.start()
+        // , startConsumer()
 
-        await Promise.all([database() , startConsumer()])
+        await Promise.all([database() ])
 
     } catch ( error: any ){
 
