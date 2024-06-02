@@ -1,6 +1,7 @@
 import { Router } from "express";
 import { IDependecies } from "../../application/Interfases/IDependencies";
 import { controller } from "../../presentation/controller";
+import { jwtMiddleware } from "../../_lib/common/middleware/jwtMiddleWare";
 
 
 
@@ -8,7 +9,8 @@ import { controller } from "../../presentation/controller";
 
 export const routes = ( Dependencies : IDependecies ) => {
     
-    const { checkExistingUserName , findUserByEmail , login , signup , verifyOtp , googleAuth} = controller( Dependencies ) ;
+    const { checkExistingUserName , findUserByEmail ,
+         login , signup , verifyOtp , googleAuth , getUser } = controller( Dependencies ) ;
 
     const router = Router()
 
@@ -31,7 +33,9 @@ export const routes = ( Dependencies : IDependecies ) => {
     
     // google authentication --------------------------------
     router.route( '/google-auth' ).post( googleAuth )
-
+    
+    // get user --------------------------------
+    router.route( '/get-user' ).get( jwtMiddleware , getUser )
 
 
 
