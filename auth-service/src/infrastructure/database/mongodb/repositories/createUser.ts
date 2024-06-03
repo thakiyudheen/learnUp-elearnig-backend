@@ -1,4 +1,4 @@
-import { userEntity } from "@/domain/entities/UserEntity";
+import { userEntity } from "../../../../domain/entities/UserEntity";
 import { User } from "../models";
 
 
@@ -8,7 +8,9 @@ export const createUser = async  ( data : userEntity ) : Promise < userEntity | 
         const user = await User.create( data ) ;
 
         if( !user ) {
-            throw new Error('User Creation Failed ')
+
+            throw new Error('User Creation Failed ') ;
+
         }
 
         return user

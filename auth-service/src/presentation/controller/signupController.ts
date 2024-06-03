@@ -3,6 +3,7 @@ import { Dependencies } from "../../_boot/dependecies";
 import { hashPassword } from "../../_lib/http/bcrypt";
 import { IDependecies } from "../../application/Interfases/IDependencies";
 import { NextFunction, Request, Response } from "express";
+import { createUserProducer } from "@/infrastructure/kafka/producer/createUserProducer";
 
 
 export const signupController = ( Dependencies : IDependecies ) => {
@@ -26,6 +27,9 @@ export const signupController = ( Dependencies : IDependecies ) => {
                     message: " User creation failed ", 
                 } )
             }else {
+                
+                // create user using  kafka producer---------- 
+                await createUserProducer(user)
 
                 const accessToken = generateAccessToken({
                     _id : String(user._id) ,
