@@ -31,7 +31,7 @@ app.get('/', (req: Request, res: Response) => {
 });
 
 
-app.use('/api/user',routes( Dependencies ))
+app.use('/',routes( Dependencies ))
 
 //  not fount Error --------------------------------------
 
