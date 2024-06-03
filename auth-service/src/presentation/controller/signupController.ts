@@ -3,7 +3,7 @@ import { Dependencies } from "../../_boot/dependecies";
 import { hashPassword } from "../../_lib/http/bcrypt";
 import { IDependecies } from "../../application/Interfases/IDependencies";
 import { NextFunction, Request, Response } from "express";
-import { createUserProducer } from "@/infrastructure/kafka/producer/createUserProducer";
+import { createUserProducer } from "../../infrastructure/kafka/producer/createUserProducer";
 
 
 export const signupController = ( Dependencies : IDependecies ) => {
