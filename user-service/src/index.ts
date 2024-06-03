@@ -5,6 +5,7 @@ import database from "./_boot/database";
     try{
         
         server.start()
+        
 
     } catch ( error: any ){
         
