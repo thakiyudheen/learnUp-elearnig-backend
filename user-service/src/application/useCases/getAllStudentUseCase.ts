@@ -1,19 +1,28 @@
+import { Dependencies } from "@/_boot/dependecies";
+import { NextFunction, Request, Response } from "express";
 import { IDependecies } from "../Interfases/IDependencies";
 
-export const getAllStudentUseCase = ( Deoendencies : IDependecies) => {
 
-    const { repositories : { getAllStudents } } = Deoendencies
-    execute : ( ) => {
 
-        try {
+export const getAllStudentUseCase = (Dependencies : IDependecies) => {
+
+    console.log('this is working ')
     
-            return getAllStudents()
-    
-        } catch ( error : any ) {
+    const {  repositories : { getAllStudents} } = Dependencies
 
-            throw new Error(error?.message);
+    return {
+
+        execute: async ( ) => { 
+            try {
+
+                return await getAllStudents( )  
+
+            } catch ( error : any ) {
+
+                throw new Error(error?.message);
+
+            }
 
         }
-
     }
 }
