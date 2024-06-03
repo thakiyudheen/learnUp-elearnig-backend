@@ -26,12 +26,12 @@ app.use(morgan('dev'));
 
 app.get('/', (req: Request, res: Response) => {
     res.status(200).json({
-        message: " notification is ON!"
+        message: " user service is ON!"
     });
 });
 
 
-app.use('/',routes( Dependencies ))
+app.use('/api/user',routes( Dependencies ))
 
 //  not fount Error --------------------------------------
 
