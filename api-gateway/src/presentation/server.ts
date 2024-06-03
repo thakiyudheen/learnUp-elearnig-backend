@@ -45,6 +45,11 @@ const routes = [
         target: "http://localhost:3002",
         changeOrigin: true,
     },
+    {
+        context: "/api/user",
+        target: "http://localhost:3003",
+        changeOrigin: true,
+    },
 ];
 
 routes.forEach((route) => {
