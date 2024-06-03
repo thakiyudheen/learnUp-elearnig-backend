@@ -1,6 +1,6 @@
-import { IgetAllUserUseCase } from "../../domain/IUseCases";
+import { IGetAllInstructorUseCase, IGetAllStudentUseCase } from "../../domain/IUseCases";
 
 export interface IuseCases {
-    getAllStudentUseCase : ( Deoendencies : any ) => IgetAllUserUseCase
-    getAllInstructorUseCase : ( Deoendencies : any ) => IgetAllUserUseCase
+    getAllStudentUseCase : (Dependencies : any ) => IGetAllStudentUseCase,
+    getAllInstructorUseCase : (Dependencies : any ) => IGetAllInstructorUseCase
 }

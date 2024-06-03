@@ -6,6 +6,8 @@ import database from "./_boot/database";
         
         server.start()
 
+        
+
     } catch ( error: any ){
         
         console.error(error?.message || 'An error occurred');

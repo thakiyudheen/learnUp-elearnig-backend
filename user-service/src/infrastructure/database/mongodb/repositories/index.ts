@@ -1,1 +1,2 @@
-export * from './createUser'
+export * from './getAllInstructors'
+export * from './getAllStudents'

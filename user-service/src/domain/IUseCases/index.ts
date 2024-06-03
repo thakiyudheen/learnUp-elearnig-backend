@@ -1,2 +1,2 @@
-export * from './getAllStudentUseCase'
-export * from './getAllInstrutorUseCase'
+export * from './IGetAllInstructorUseCase'
+export * from './IGetAllStudentUseCase'
