@@ -15,7 +15,7 @@ export default async () => {
 
         await mongoose.connect(mongo_url.trim())
 
-        console.log("🍃 MongoDB connected successfully ---> auth-service 🍃");
+        console.log("🍃 MongoDB connected successfully ---> user-service 🍃");
         
 
 
