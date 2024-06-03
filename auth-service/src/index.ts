@@ -7,7 +7,7 @@ import { startConsumer } from "./_boot/consumer";
         server.start()
         // , startConsumer()
 
-        await Promise.all([database() ])
+        await Promise.all([database(), startConsumer() ])
 
     } catch ( error: any ){
 
