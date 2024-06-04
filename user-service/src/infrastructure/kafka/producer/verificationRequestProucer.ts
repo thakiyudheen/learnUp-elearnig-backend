@@ -1,0 +1,38 @@
+import { producer } from "..";
+
+export default async (data: { email : string; isVerified: boolean }) => {
+  try {
+    await producer.connect();
+
+    // Message for auth service
+    const authServiceMessage = {
+      topic: "auth-service-topic",
+      messages: [
+        {
+          key: "verificationRequest",
+          value: JSON.stringify(data),
+        },
+      ],
+    };
+
+    
+    const newServiceMessage = {
+      topic: "",
+      messages: [
+        {
+          key: "notification-service-topic",
+          value: JSON.stringify(data.email),
+        },
+      ],
+    };
+
+    
+    await producer.send(authServiceMessage);
+    await producer.send(newServiceMessage);
+
+  } catch (error: any) {
+    console.error("kafka produce error:", error?.message);
+  } finally {
+    await producer.disconnect();
+  }
+};

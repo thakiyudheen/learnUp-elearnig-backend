@@ -1,3 +1,5 @@
 export * from './getAllInstructors'
 export * from './getAllStudents'
 export * from './blockUnblock'
+export * from './getRequests'
+export * from './verifyRequest'
