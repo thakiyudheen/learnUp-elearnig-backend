@@ -1,6 +1,8 @@
-import { IGetAllInstructorUseCase, IGetAllStudentUseCase } from "../../domain/IUseCases";
+
+import { IBlockUnblockUseCase, IGetAllInstructorUseCase, IGetAllStudentUseCase } from "../../domain/IUseCases";
 
 export interface IuseCases {
     getAllStudentUseCase : (Dependencies : any ) => IGetAllStudentUseCase,
-    getAllInstructorUseCase : (Dependencies : any ) => IGetAllInstructorUseCase
+    getAllInstructorUseCase : (Dependencies : any ) => IGetAllInstructorUseCase,
+    blockUnblockUseCase : (Dependencies : any ) => IBlockUnblockUseCase
 }
