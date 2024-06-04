@@ -12,10 +12,10 @@ export const routes = ( Dependencies : IDependecies ) => {
     const router = Router()
 
     // get all students --------------------------
-    router.route('/getAll-students').get( jwtMiddleware , getAllstudents )
+    router.route('/getAll-students').get( getAllstudents )
     
     // get all students --------------------------
-    router.route('/getAll-instructors').get( jwtMiddleware , getAllInstructors )
+    router.route('/getAll-instructors').get(  getAllInstructors )
 
     return router
 }
