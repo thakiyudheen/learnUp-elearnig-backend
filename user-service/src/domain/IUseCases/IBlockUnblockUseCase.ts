@@ -7,5 +7,5 @@ interface data {
 
 export interface IBlockUnblockUseCase {
 
-    execute ( data : data ) : Promise < void | null >
+    execute ( data : data ) : Promise < void >
 }
