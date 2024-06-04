@@ -3,18 +3,18 @@ import sendVerificationMailConsumer from "./consumers/verificationMailConsumer";
 
 export interface ISubscriber {
 	sendVerificationMail(data: any): Promise<void>;
-	blockUnblock(data : any ) : Promise<void>;
+	blockUnblockUser(data : any ) : Promise<void>;
 }
 
 export interface IAuthSubscriber
 	extends Pick<ISubscriber, 
 		"sendVerificationMail"
-		|"blockUnblock"
+		|"blockUnblockUser"
 	> {}
 
 export const createSubscriber = (): IAuthSubscriber => {
 	return {
 		sendVerificationMail: sendVerificationMailConsumer,
-		blockUnblock : blockUnblockConsumer
+		blockUnblockUser : blockUnblockConsumer
 	};
 };
