@@ -4,5 +4,5 @@ import { IBlockUnblockUseCase, IGetAllInstructorUseCase, IGetAllStudentUseCase }
 export interface IuseCases {
     getAllStudentUseCase : (Dependencies : any ) => IGetAllStudentUseCase,
     getAllInstructorUseCase : (Dependencies : any ) => IGetAllInstructorUseCase,
-    blockUnblockUseCase : (Dependencies : any ) => IBlockUnblockUseCase
+    blockUnblockUserUseCase : ( Dependencies : any ) => IBlockUnblockUseCase
 }
