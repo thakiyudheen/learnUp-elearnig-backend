@@ -1,15 +1,16 @@
-import { userEntity } from "@/domain/entities/UserEntity";
 import { User } from "../models";
 
 
-export const blockUnblock = async  ( _id : string , status : boolean ) : Promise < void > => {
+export const blockUnblock = async  ( data : {_id : string , isBlocked : boolean} ) : Promise < void > => {
 
     try {
        
-        const user = await User.updateOne( { _id } , { isBlocked : status }) ;
+        const updated = await User.updateOne( { _id : data._id} , { isBlocked : data.isBlocked }) ;
 
-        if( !user ) {
-            throw new Error('User Blocking error in auth-service ')
+        if( !updated ) {
+
+            throw new Error('User Blocking error in auth-service ');
+            
         }
 
         
