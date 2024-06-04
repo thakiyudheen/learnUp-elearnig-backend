@@ -18,14 +18,14 @@ export const blockUnblockController = ( Dependencies : IDependecies ) => {
 
             
 
-            const  instructors = await blockUnblockUseCase( Dependencies ).execute( req.body )
+            const  response = await blockUnblockUseCase( Dependencies ).execute( req.body )
 
-            if( !instructors ){
+            if( !response ){
               return res.status(200).json( { 
 
                     success: false,
                     data: {},
-                    message: " The instructors is Emty!! ", 
+                    message: " Error when updating status ", 
                 } )
             }
 
@@ -36,8 +36,8 @@ export const blockUnblockController = ( Dependencies : IDependecies ) => {
            return  res.status(200).json( { 
 
                     success: true,
-                    data: instructors ,
-                    message: " instructor find successfully ", 
+                    data: {} ,
+                    message: " updated successfully ", 
 
                 } )
 
