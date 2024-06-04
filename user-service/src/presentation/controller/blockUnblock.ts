@@ -9,7 +9,7 @@ interface data {
 }
 export const blockUnblockController = ( Dependencies : IDependecies ) => {
    
-    const { useCases : { blockUnblockUseCase } } = Dependencies
+    const { useCases : { blockUnblockUserUseCase } } = Dependencies
     
     return async (req: Request, res: Response, next: NextFunction) => {
         try {
@@ -18,7 +18,7 @@ export const blockUnblockController = ( Dependencies : IDependecies ) => {
 
             console.log(req.body)
 
-            await blockUnblockUseCase( Dependencies ).execute( req.body )
+            await blockUnblockUserUseCase( Dependencies ).execute( req.body )
 
             
         //    create kafka ------------------------ 
