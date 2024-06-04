@@ -16,7 +16,7 @@ export const blockUnblockController = ( Dependencies : IDependecies ) => {
             console.log('here reached------------------------------')
             const {_id , isBlocked } = req.body ;
 
-            
+            console.log(req.body)
 
             const  response = await blockUnblockUseCase( Dependencies ).execute( req.body )
 

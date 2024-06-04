@@ -9,7 +9,7 @@ interface data{
 }
 export const blockUnblockUseCase = ( Dependencies : IDependecies) => {
 
-    console.log('this is working blocking')
+    console.log('this is working ')
     
     const {  repositories : { blockUnblock } } = Dependencies
 
