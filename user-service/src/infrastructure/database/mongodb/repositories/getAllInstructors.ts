@@ -5,7 +5,7 @@ import { User } from "../models";
 export const getAllInstructors = async  ( ) : Promise < userEntity[] | null > => {
     try {
        
-        const instructor = await User.find( { role : 'instructor' } ) ;
+        const instructor = await User.find( { role : 'instructor' , isVerified : true } ) ;
 
         if( !instructor ) {
 
