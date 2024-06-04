@@ -1,5 +1,8 @@
 import { Request, Response, NextFunction } from "express";
 import jwt from 'jsonwebtoken';
+import { config } from 'dotenv' ;
+
+config()
 
 interface UserPayload {
 
@@ -23,6 +26,7 @@ export const jwtMiddleware = async (req: Request, res: Response, next: NextFunct
 
     const token = req.cookies.access_token || (req.headers.authorization?.split(' ')[1] || '');
     console.log('this is token they providein')
+    console.log('ACCESS_TOKEN_SECRET:', process.env.ACCESS_TOKEN_SECRET);
     if (!token) {
 
         console.log("No token provided");

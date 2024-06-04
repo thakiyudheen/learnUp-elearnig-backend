@@ -2,10 +2,10 @@ import { userEntity } from "../../../../domain/entities/UserEntity";
 import { User } from "../models";
 
 
-export const getAllInstructors = async  ( ) : Promise < userEntity | null > => {
+export const getAllInstructors = async  ( ) : Promise < userEntity[] | null > => {
     try {
        
-        const instructor = await User.findOne( { role : 'instructor' } ) ;
+        const instructor = await User.find( { role : 'instructor' } ) ;
 
         if( !instructor ) {
 
