@@ -18,17 +18,9 @@ export const blockUnblockController = ( Dependencies : IDependecies ) => {
 
             console.log(req.body)
 
-            const  response = await blockUnblockUseCase( Dependencies ).execute( req.body )
+            await blockUnblockUseCase( Dependencies ).execute( req.body )
 
-            if( !response ){
-              return res.status(200).json( { 
-
-                    success: false,
-                    data: {},
-                    message: " Error when updating status ", 
-                } )
-            }
-
+            
         //    create kafka ------------------------ 
            await blockUnblockProducer(req.body)
 
