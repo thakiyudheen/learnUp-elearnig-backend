@@ -1,4 +1,3 @@
-import { blockUnblock } from "@/infrastructure/database/mongodb/repositories/blockUnblock";
 import { Dependencies } from "../../_boot/dependecies";
 import { IDependecies } from "../../application/Interfases/IDependencies";
 import { getAllInstructorsController } from "./getAllinstructors";
@@ -10,6 +9,6 @@ export const controller = ( Dependencies : IDependecies ) => {
     return {
         getAllstudents : getAllStudentsController( Dependencies ),
         getAllInstructors : getAllInstructorsController( Dependencies ),
-        blockUnblock : blockUnblockController( Dependencies )
+        blockUnblocks : blockUnblockController( Dependencies )
     }
 }
