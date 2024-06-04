@@ -6,7 +6,7 @@ interface data {
     isBlocked :boolean
 }
 
-export const blockUnblock = async ( data : data ) : Promise < void | null > => {
+export const blockUnblock = async ( data : data ) : Promise < void > => {
 
     try {
         
@@ -15,7 +15,7 @@ export const blockUnblock = async ( data : data ) : Promise < void | null > => {
         
     } catch ( error : any ) {
 
-        throw new Error(error?.message);
+        console.log(error.message)
 
     }
 }

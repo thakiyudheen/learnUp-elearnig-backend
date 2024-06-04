@@ -9,5 +9,5 @@ export interface IRepositories {
     
     getAllStudents : ( ) => Promise < userEntity[] | null >
     getAllInstructors : ( ) => Promise < userEntity[] | null >
-    blockUnblock : ( data : data ) => Promise < boolean | null >
+    blockUnblock : ( data : data ) => Promise < void >
 }
