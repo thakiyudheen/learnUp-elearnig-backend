@@ -17,10 +17,10 @@ export default async (data: { email : string; isVerified: boolean }) => {
 
     
     const newServiceMessage = {
-      topic: "",
+      topic: "notification-service-topic",
       messages: [
         {
-          key: "notification-service-topic",
+          key: "verificationRequestMail",
           value: JSON.stringify(data.email),
         },
       ],
