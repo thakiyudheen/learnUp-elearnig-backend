@@ -1,10 +1,10 @@
-import { verifyRequestMailSend } from "@/infrastructure/services/mail";
+import { verifyRequestMailSend } from "../../../infrastructure/services/mail";
 
 
 
 export default async (email: string) => {
 	try {
-        
+
 		await verifyRequestMailSend(email)
 
 		console.log("instructor verified consumer -------->");
