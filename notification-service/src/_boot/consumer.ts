@@ -1,5 +1,5 @@
 import { consumer } from "../infrastructure/kafka"
-import { INotificationSubscriber, createSubscriber } from "../infrastructure/kafka/subcriber";
+import { INotificationSubscriber, createSubscriber } from "../infrastructure/kafka/subscriber";
 
 
 export const startConsumer = async () => {
