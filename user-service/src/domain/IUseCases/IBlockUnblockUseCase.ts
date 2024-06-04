@@ -1,4 +1,3 @@
-import { userEntity } from "../entities/UserEntity";
 
 
 interface data {
@@ -8,5 +7,5 @@ interface data {
 
 export interface IBlockUnblockUseCase {
 
-    execute( data : data ) : Promise < boolean | null >
+    execute( data : data ) : Promise < void | null >
 }
