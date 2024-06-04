@@ -1,4 +1,4 @@
-import blockUnblockProducer from "@/infrastructure/kafka/producer/blockUnblockProducer";
+import blockUnblockProducer from "../../infrastructure/kafka/producer/blockUnblockProducer";
 import { Dependencies } from "../../_boot/dependecies";
 import { IDependecies } from "../../application/Interfases/IDependencies";
 import { NextFunction, Request, Response } from "express";

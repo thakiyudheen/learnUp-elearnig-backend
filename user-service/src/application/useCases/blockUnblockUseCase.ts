@@ -3,7 +3,10 @@ import { NextFunction, Request, Response } from "express";
 import { IDependecies } from "../Interfases/IDependencies";
 
 
-
+interface data{
+    _id : string ,
+    isBlocked : boolean 
+}
 export const blockUnblockUseCase = ( Dependencies : IDependecies) => {
 
     console.log('this is working ')
@@ -12,7 +15,7 @@ export const blockUnblockUseCase = ( Dependencies : IDependecies) => {
 
     return {
 
-        execute: async ( _id : string , isBlocked : boolean ) => { 
+        execute: async ( data : data ) => { 
             try {
 
                 return await blockUnblock( data )  
