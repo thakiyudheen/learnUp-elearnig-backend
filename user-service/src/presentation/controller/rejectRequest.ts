@@ -2,7 +2,8 @@ import blockUnblockProducer from "../../infrastructure/kafka/producer/blockUnblo
 import { Dependencies } from "../../_boot/dependecies";
 import { IDependecies } from "../../application/Interfases/IDependencies";
 import { NextFunction, Request, Response } from "express";
-
+import verificationRequestProucer from "../../infrastructure/kafka/producer/verificationRequestProucer";
+import rejectRequestProducer from "../../infrastructure/kafka/producer/rejectRequestProducer";
 
 interface data {
     _id :string ,
@@ -22,10 +23,10 @@ export const rejectRequestContoller = ( Dependencies : IDependecies ) => {
             await rejectRequestUseCase( Dependencies ).execute( req.body )
 
             
-        //    create kafka ------------------------ 
-        //    await verificationRequestProucer(req.body)
+            //    create kafka ------------------------ 
+            await rejectRequestProducer(req.body)
 
-           return  res.status(200).json( { 
+            return  res.status(200).json( { 
 
                     success: true,
                     data: {} ,
