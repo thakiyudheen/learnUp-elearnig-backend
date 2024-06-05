@@ -68,6 +68,10 @@ const userSchema = new Schema({
         type: Boolean,
         default: false
     },
+    isReject: {
+        type: Boolean,
+        default: false
+    },
     profession: {
         type: String,
         enum: [ "working", "student"]

@@ -1,5 +1,6 @@
 
 
+import { IRejectRequestUseCase } from "@/domain/IUseCases/IRejectRequestUseCase";
 import { 
     IBlockUnblockUseCase,
     IGetAllInstructorUseCase,
@@ -13,6 +14,7 @@ export interface IuseCases {
     getAllInstructorUseCase : (Dependencies : any ) => IGetAllInstructorUseCase,
     blockUnblockUserUseCase : ( Dependencies : any ) => IBlockUnblockUseCase,
     verificationRequestUseCase : ( Dependencies : any ) => IVerificationRequestUseCase,
-    getRequestUseCase : ( Dependencies : any ) => IGetRequestUseCase
+    getRequestUseCase : ( Dependencies : any ) => IGetRequestUseCase,
+    rejectRequestUseCase : ( Dependencies : any ) => IRejectRequestUseCase
 
 }
