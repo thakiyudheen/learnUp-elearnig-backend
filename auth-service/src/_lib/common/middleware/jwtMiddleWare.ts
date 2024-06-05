@@ -29,6 +29,8 @@ export const jwtMiddleware = async ( req: Request, res: Response, next: NextFunc
 
     try {
         const decoded = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET!) as UserPayload;
+
+        if(decoded)
         
         req.user = decoded;
 
