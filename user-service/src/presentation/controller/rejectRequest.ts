@@ -22,10 +22,11 @@ export const rejectRequestContoller = ( Dependencies : IDependecies ) => {
 
             await rejectRequestUseCase( Dependencies ).execute( req.body )
 
-            
+            console.log('the kafka take time to runninig')
             //    create kafka ------------------------ 
             await rejectRequestProducer(req.body)
-
+            console.log('the kafka take time to runninig2')
+            
             return  res.status(200).json( { 
 
                     success: true,

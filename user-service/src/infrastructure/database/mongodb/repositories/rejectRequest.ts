@@ -10,7 +10,7 @@ export const rejectRequest = async ( data : data ) : Promise < void > => {
 
     try {
         
-        await User.updateOne( {email : data.email} , {isRejected : true} )
+        await User.updateOne( {email : data.email} , {isReject : true  } )
 
         
     } catch ( error : any ) {
