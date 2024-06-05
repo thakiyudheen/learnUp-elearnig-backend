@@ -1,5 +1,13 @@
-import { IgetUserDataUseCase } from "@/domain/IuseCases/IgetUserDataUseCase";
-import { IcheckExistingUserNameUseCase, IcreateUserUseCase, IfindUserByEmail, IloginUseCase, IupdateOtpUseCase, IverifyOtpUseCase } from "../../domain/IuseCases";
+
+import {  
+     IResetPasswordUseCase,
+     IcheckExistingUserNameUseCase,
+     IcreateUserUseCase, 
+     IfindUserByEmail,
+     IgetUserDataUseCase,
+     IloginUseCase,
+     IverifyOtpUseCase } from "../../domain/IuseCases";
+
 
 export interface IuseCases {
     checkExistingUserNameUseCase : ( Dependencies : any ) => IcheckExistingUserNameUseCase
@@ -8,6 +16,7 @@ export interface IuseCases {
     createUserUseCase : (Dependencies : any ) => IcreateUserUseCase
     verifyOtpUseCase : (Deopendencies : any ) => IverifyOtpUseCase
     getUserDataUseCase : (Deopendencies : any ) => IgetUserDataUseCase
+    resetPasswordUseCase : ( Dependencies : any) => IResetPasswordUseCase
     
 
 }
