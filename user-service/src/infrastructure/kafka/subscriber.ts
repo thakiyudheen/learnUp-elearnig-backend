@@ -1,6 +1,7 @@
 import userCreatedConsumer from "./consumer/userCreatedConsumer"
 
 
+
 export interface ISubscriber {
     userCreated:(data: any) => Promise<void>
 }
