@@ -4,6 +4,7 @@ import { verifyRequestMailSend } from "../../../infrastructure/services/mail";
 
 export default async (email: string) => {
 	try {
+        console.log("instructor verified consumer -------->");
 
 		await verifyRequestMailSend(email)
 
