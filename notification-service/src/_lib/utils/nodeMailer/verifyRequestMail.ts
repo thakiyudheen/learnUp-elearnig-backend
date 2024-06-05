@@ -26,8 +26,24 @@ export const verifyRequestMail = async ( recipientEmail : string ): Promise<void
         from: process.env.EMAIL_,
         to: recipientEmail ,
         subject: 'learnUp e-learnig pvt-ltd',
-        text: `We are pleased to inform you that your request to
-         become an instructor with LearnUp has been accepted!`
+        html: `
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>LearnUp Instructor Application</title>
+        </head>
+        <body>
+          <div style="font-family: Arial, sans-serif; padding: 20px;">
+            <h1 style="color: #008000;">Your Instructor Application Status</h1>
+            <p>We are pleased to inform you that your request to become an instructor with LearnUp has been accepted!</p>
+            <p>Welcome aboard and thank you for joining our team.</p>
+            <p>Best regards,<br>LearnUp Team</p>
+          </div>
+        </body>
+        </html>
+      `
     };
 
     // Send email

@@ -35,12 +35,12 @@ export const rejectRequestMail = async ( recipientEmail : string ): Promise<void
           <title>LearnUp Instructor Application</title>
         </head>
         <body>
-          <div style="font-family: Arial, sans-serif; padding: 20px;">
-            <h1 style="color: #008000;">Your Instructor Application Status</h1>
-            <p>We are pleased to inform you that your request to become an instructor with LearnUp has been accepted!</p>
-            <p>Welcome aboard and thank you for joining our team.</p>
-            <p>Best regards,<br>LearnUp Team</p>
-          </div>
+            <div style="font-family: Arial, sans-serif; padding: 20px;">
+                <h1 style="color: #FF0000;">Your Instructor Application Status</h1>
+                <p>We regret to inform you that your request to become an instructor with LearnUp has been declined.</p>
+                <p>We appreciate your interest in joining our team and encourage you to reapply in the future.</p>
+                <p>Best regards,<br>LearnUp Team</p>
+            </div>
         </body>
         </html>
       `
