@@ -6,19 +6,19 @@ import verifyRequestConsumer from "./consumers/verifyRequestConsumer";
 interface ISubscriber {
     verificationRequestMail(data: any): Promise<void>;
     forgetPassword(data: any): Promise<void>;
-    rejectReqeustMail(data: any): Promise<void>;
+    rejectRequestMail(data: any): Promise<void>;
 }
 
 export interface INotificationSubscriber extends Pick<ISubscriber, 
                 'verificationRequestMail'
                 |'forgetPassword'
-                |'rejectReqeustMail'
+                |'rejectRequestMail'
                   > { }
 
 export const createSubscriber = (): INotificationSubscriber => {
     return {
         verificationRequestMail : verifyRequestConsumer,
         forgetPassword : forgetPasswordMailConsumer,
-        rejectReqeustMail : rejectRequestConsumer
+        rejectRequestMail : rejectRequestConsumer
     }
 }
