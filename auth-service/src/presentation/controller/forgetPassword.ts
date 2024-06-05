@@ -1,4 +1,4 @@
-import { generateForgetPassword } from "../../_lib/http/bcrypt";
+import { generateForgetPassword } from "../../_lib/http/jwt";
 import { IDependecies } from "../../application/Interfases/IDependencies";
 import { forgetPasswordMailProducer } from "../../infrastructure/kafka/producer";
 import { NextFunction, Request, Response } from "express";

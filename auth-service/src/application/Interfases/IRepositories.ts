@@ -7,4 +7,5 @@ export interface IRepositories {
     createUser : ( data : userEntity ) => Promise < userEntity | null > 
     verifyOtp : ( email : string , otp :string  ) => Promise < boolean | null > 
     getUserData : ( _id : string ) => Promise < userEntity | null > 
+    resetPassword : ( email : string , password : string ) => Promise < boolean | null > 
 }
