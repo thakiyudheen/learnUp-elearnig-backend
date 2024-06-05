@@ -45,6 +45,7 @@ export interface userEntity  {
     contact ?: contact ;
     isBlocked ?: boolean ;
     isVerified ?: boolean ;
+    isReject ?: boolean ;
     isGauth ?: boolean ;
     createdAt ?: Date ;
     updatedAt ?: Date ;
