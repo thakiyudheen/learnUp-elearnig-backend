@@ -2,6 +2,7 @@ import { Dependencies } from "../../_boot/dependecies";
 import { IDependecies } from "../../application/Interfases/IDependencies";
 import { checkExistingUserNameController } from "./checkExistingUserNameController";
 import { findByUserEmailController } from "./findUserByEmail";
+import { forgetPasswordController } from "./forgetPassword";
 import { getUserDataController } from "./getUserDataController";
 import { googleAuth } from "./googleAuth";
 import { loginController } from "./loginController";
@@ -18,6 +19,7 @@ export const controller = ( Dependencies : IDependecies ) => {
          verifyOtp : verifyOtpController( Dependencies ),
          googleAuth : googleAuth( Dependencies ),
          getUser : getUserDataController( Dependencies ),
-         logout : loginController( Dependencies )
+         logout : loginController( Dependencies ),
+         forgetPassword : forgetPasswordController( Dependencies )
     }
 }
