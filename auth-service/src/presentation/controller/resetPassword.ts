@@ -11,13 +11,13 @@ export const resetPasswordController = ( Dependencies : IDependecies ) => {
     return async (req: Request, res: Response, next: NextFunction) => {
         try {
             
-            req.body.password = hashPassword( req.body.password )
+            req.body.password = await hashPassword( req.body.password )
 
             const secret = process.env.FORGOT_PASSWORD_SECRET
 
             const  { token , password } = req.body ;
 
-            const payload : any = verifyToken( token , secret as string )
+            const payload : any = await verifyToken( token , secret as string )
 
             const { email } = payload ;
 
@@ -25,7 +25,6 @@ export const resetPasswordController = ( Dependencies : IDependecies ) => {
 
           
             if( !reset ) {
-                
                 return  res.status(200).json( { 
 
                     success: false,
