@@ -8,7 +8,7 @@ import { jwtMiddleware } from "../../_lib/common/middleWares/jwtMimiddleWare";
 
 export const routes = ( Dependencies : IDependecies ) => {
     const {} = Dependencies 
-    const { getAllInstructors , getAllstudents, blockUnblocks , verifyRequest , getRequests} = controller( Dependencies ) ;
+    const { getAllInstructors , getAllstudents, blockUnblocks , verifyRequest , getRequests , rejectRequest} = controller( Dependencies ) ;
 
     const router = Router()
 
@@ -26,7 +26,9 @@ export const routes = ( Dependencies : IDependecies ) => {
 
      // get all requests  --------------------------
      router.route('/getAll-requests').get( getRequests )
-
+     
+     // reject requests  --------------------------
+     router.route('/reject-request').patch( rejectRequest )
      
 
     return router
