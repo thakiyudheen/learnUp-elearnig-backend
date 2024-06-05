@@ -26,8 +26,12 @@ export const forgetPasswordMail = async ( data : {email : string , url : string}
         from: process.env.EMAIL_,
         to: data.email ,
         subject: 'learnUp e-learnig pvt-ltd',
-        text: `We are pleased to inform you that your request to
-         become an instructor with LearnUp has been accepted!`
+        html: `<p>Hi,</p>
+        <p>We received a request to reset your password. Click the link below to reset your password:</p>
+        <a href="${ data.url }">Reset Password</a>
+        <p>If you did not request a password reset, please ignore this email.</p>
+        <p>Thank you,</p>
+        <p>Your Company Name</p>`
     };
 
     // Send email
