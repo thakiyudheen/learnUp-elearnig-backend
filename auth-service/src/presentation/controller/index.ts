@@ -1,3 +1,4 @@
+import { resetPasswordUseCase } from "@/application/useCases";
 import { Dependencies } from "../../_boot/dependecies";
 import { IDependecies } from "../../application/Interfases/IDependencies";
 import { checkExistingUserNameController } from "./checkExistingUserNameController";
@@ -8,6 +9,7 @@ import { googleAuth } from "./googleAuth";
 import { loginController } from "./loginController";
 import { signupController } from "./signupController";
 import { verifyOtpController } from "./verifyOtpController";
+import { resetPasswordController } from "./resetPassword";
 
 export const controller = ( Dependencies : IDependecies ) => {
     
@@ -20,6 +22,7 @@ export const controller = ( Dependencies : IDependecies ) => {
          googleAuth : googleAuth( Dependencies ),
          getUser : getUserDataController( Dependencies ),
          logout : loginController( Dependencies ),
-         forgetPassword : forgetPasswordController( Dependencies )
+         forgetPassword : forgetPasswordController( Dependencies ),
+         resetPassword : resetPasswordController( Dependencies )
     }
 }
