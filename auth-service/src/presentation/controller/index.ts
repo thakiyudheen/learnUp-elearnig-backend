@@ -17,6 +17,7 @@ export const controller = ( Dependencies : IDependecies ) => {
          signup : signupController( Dependencies ),
          verifyOtp : verifyOtpController( Dependencies ),
          googleAuth : googleAuth( Dependencies ),
-         getUser : getUserDataController( Dependencies )
+         getUser : getUserDataController( Dependencies ),
+         logout : loginController( Dependencies )
     }
 }
