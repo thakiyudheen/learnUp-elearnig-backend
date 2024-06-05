@@ -5,7 +5,7 @@ export const rejectRequest = async  ( data : { email : string , isVerified : boo
 
     try {
        
-        const updated = await User.updateOne( { email : data.email } , { isRejected : true }) ;
+        const updated = await User.updateOne( { email : data.email } , { isReject : true }) ;
 
         if( !updated ) {
 
