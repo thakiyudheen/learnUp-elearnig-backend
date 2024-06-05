@@ -1,4 +1,4 @@
-import { userEntity } from "@/domain/entities/UserEntity";
+import { userEntity } from "../../../../domain/entities/UserEntity";
 import { Schema, model } from "mongoose";
 
 
@@ -65,6 +65,10 @@ const userSchema = new Schema({
         default: false
     },
     isGauth: {
+        type: Boolean,
+        default: false
+    },
+    isReject: {
         type: Boolean,
         default: false
     },

@@ -13,4 +13,5 @@ export interface IRepositories {
     blockUnblock : ( data : data ) => Promise < void >
     verifyRequest : ( data : {email : string ,isVerified : boolean }) => Promise < void >
     getRequest : ( ) => Promise < userEntity[] | null >
+    rejectRequest : (data : {email : string ,isVerified : boolean }) => Promise < void >
 }
