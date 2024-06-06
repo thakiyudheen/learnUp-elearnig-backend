@@ -1,5 +1,11 @@
 import { Request, Response, NextFunction } from "express";
 import jwt from 'jsonwebtoken';
+import { config } from 'dotenv' ;
+import { access } from "fs";
+import { generateAccessToken } from "@/_lib/utils/http/jwt/generateAccessToken";
+
+
+config()
 
 interface UserPayload {
 
@@ -20,28 +26,45 @@ declare global {
 }
 
 export const jwtMiddleware = async (req: Request, res: Response, next: NextFunction): Promise<any> => {
+        try {
+                const { access_token, refresh_token } = req.cookies;
 
-    const token = req.cookies.access_token || (req.headers.authorization?.split(' ')[1] || '');
+                if(!access_token&&!refresh_token){
 
-    if (!token) {
+                    return next()
 
-        console.log("No token provided");
-        return res.status(401).json({ message: "No token provided" });
-    }
+                }
+                let user ;
 
-    try {
+                if(access_token){
 
-        const decoded = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET!) as UserPayload;
+                    user = await  jwt.verify(access_token, process.env.ACCESS_TOKEN_SECRET!) as UserPayload;
 
-        req.user = decoded;
+                }
+                if(!user && refresh_token){
+
+                    user = await jwt.verify(refresh_token, process.env.ACCESS_TOKEN_SECRET!) as UserPayload;
+
+                    if(user){
+                    const newAccessToken = generateAccessToken(user);
+
+                    //    create cookie using accestoken ------------
+                        res.cookie("access_token", newAccessToken, {
+                            httpOnly: true,
+                        });
+
+                    }
+                }
+                
+                req.user = user ;
+                
+                next();
+     } catch( error : any ) {
+
+        console.error("Error in JWT middleware:", error);
+        next(error); 
         
-        next();
+     }
 
-    } catch (err) {
-
-        console.error("Token verification failed:", err);
-        res.status(403).json({ message: "Invalid token" });
-
-    }
-
+   
 };
