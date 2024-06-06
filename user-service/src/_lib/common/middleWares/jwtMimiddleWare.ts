@@ -1,6 +1,9 @@
 import { Request, Response, NextFunction } from "express";
 import jwt from 'jsonwebtoken';
 import { config } from 'dotenv' ;
+import { access } from "fs";
+import { generateAccessToken } from "@/_lib/utils/http/jwt/generateAccessToken";
+
 
 config()
 
@@ -23,29 +26,45 @@ declare global {
 }
 
 export const jwtMiddleware = async (req: Request, res: Response, next: NextFunction): Promise<any> => {
+        try {
+                const { access_token, refresh_token } = req.cookies;
 
-    const token = req.cookies.access_token || (req.headers.authorization?.split(' ')[1] || '');
-    console.log('this is token they providein')
-    console.log('ACCESS_TOKEN_SECRET:', process.env.ACCESS_TOKEN_SECRET);
-    if (!token) {
+                if(!access_token&&!refresh_token){
 
-        console.log("No token provided");
-        return res.status(401).json({ message: "No token provided" });
-    }
+                    return next()
 
-    try {
+                }
+                let user ;
 
-        const decoded = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET!) as UserPayload;
+                if(access_token){
 
-        req.user = decoded;
+                    user = await  jwt.verify(access_token, process.env.ACCESS_TOKEN_SECRET!) as UserPayload;
+
+                }
+                if(!user && refresh_token){
+
+                    user = await jwt.verify(refresh_token, process.env.ACCESS_TOKEN_SECRET!) as UserPayload;
+
+                    if(user){
+                    const newAccessToken = generateAccessToken(user);
+
+                    //    create cookie using accestoken ------------
+                        res.cookie("access_token", newAccessToken, {
+                            httpOnly: true,
+                        });
+
+                    }
+                }
+                
+                req.user = user ;
+                
+                next();
+     } catch( error : any ) {
+
+        console.error("Error in JWT middleware:", error);
+        next(error); 
         
-        next();
+     }
 
-    } catch (err) {
-
-        console.error("Token verification failed:", err);
-        res.status(403).json({ message: "Invalid token" });
-
-    }
-
+   
 };
