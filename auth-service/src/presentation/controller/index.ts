@@ -10,6 +10,7 @@ import { loginController } from "./loginController";
 import { signupController } from "./signupController";
 import { verifyOtpController } from "./verifyOtpController";
 import { resetPasswordController } from "./resetPassword";
+import { logoutController } from "./logout";
 
 export const controller = ( Dependencies : IDependecies ) => {
     
@@ -21,7 +22,7 @@ export const controller = ( Dependencies : IDependecies ) => {
          verifyOtp : verifyOtpController( Dependencies ),
          googleAuth : googleAuth( Dependencies ),
          getUser : getUserDataController( Dependencies ),
-         logout : loginController( Dependencies ),
+         logout : logoutController( Dependencies ),
          forgetPassword : forgetPasswordController( Dependencies ),
          resetPassword : resetPasswordController( Dependencies )
     }
