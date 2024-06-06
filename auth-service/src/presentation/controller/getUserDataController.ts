@@ -1,5 +1,5 @@
 import { Dependencies } from "@/_boot/dependecies";
-import { IDependecies } from "@/application/Interfases/IDependencies";
+import { IDependecies } from "../../application/Interfases/IDependencies";
 import { NextFunction, Request, Response } from "express";
 
 

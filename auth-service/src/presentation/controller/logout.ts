@@ -11,7 +11,9 @@ export const logoutController = (dependancies: IDependecies) => {
 			res.cookie("access_token", "", { maxAge: 1 });
 
 			res.cookie("refresh_token", "", { maxAge: 1 });
-
+			
+			console.log('logout successfull')
+			
 			res.status(204).json({});
 
 		} catch (error : any) {
