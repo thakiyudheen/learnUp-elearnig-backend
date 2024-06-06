@@ -2,7 +2,7 @@ import { Request, Response, NextFunction } from "express";
 import jwt from 'jsonwebtoken';
 import { config } from 'dotenv' ;
 import { access } from "fs";
-import { generateAccessToken } from "@/_lib/utils/http/jwt/generateAccessToken";
+import { generateAccessToken } from "../../http/jwt/generateAccessToken";
 
 
 config()
