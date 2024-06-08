@@ -3,7 +3,7 @@ import { IuseCases } from "./IuseCases";
 
 
 export interface IDependecies {
-    //   useCases:IuseCases,
-    //   repositories:IRepositories
+      useCases:IuseCases,
+      repositories:IRepositories
       
 }
