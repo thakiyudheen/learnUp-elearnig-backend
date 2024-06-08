@@ -17,7 +17,7 @@ export const routes = ( Dependencies : IDependecies ) => {
     router.route('/update-category').patch( updateCategory )
     
     // find category ---------------------------------
-    router.route('/find-category').get( findCategory )
+    router.route('/find-category/:categoryName').get( findCategory )
 
 
 
