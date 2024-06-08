@@ -44,6 +44,11 @@ const routes = [
         target: "http://localhost:3003",
         changeOrigin: true,
     },
+    {
+        context: "/api/course",
+        target: "http://localhost:3004",
+        changeOrigin: true,
+    }
 ];
 routes.forEach((route) => {
     app.use(route.context, (0, express_http_proxy_1.default)(route.target));
