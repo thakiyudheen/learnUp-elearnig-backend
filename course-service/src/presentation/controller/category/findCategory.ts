@@ -11,6 +11,7 @@ export const findCategoryController = ( Dependencies : IDependecies ) => {
         try {
             console.log('here reached------------------------------')
             const  { categoryName } = req.params ;
+            console.log('find data', req.params)
            
 
             const category = await findCategoryUseCase( Dependencies ).execute( categoryName )

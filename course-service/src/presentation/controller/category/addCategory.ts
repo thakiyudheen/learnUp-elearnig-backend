@@ -9,8 +9,10 @@ export const addCategoryController = ( Dependencies : IDependecies ) => {
     
     return async (req: Request, res: Response, next: NextFunction) => {
         try {
-            console.log('here reached------------------------------')
+            
             const  { categoryName } = req.body ;
+
+            console.log('updating data', req.body)
            
 
             const category = await createCategoryUseCase( Dependencies ).execute( categoryName )

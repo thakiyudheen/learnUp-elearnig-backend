@@ -9,6 +9,7 @@ export const updateCategoryController = ( Dependencies : IDependecies ) => {
     
     return async (req: Request, res: Response, next: NextFunction) => {
         try {
+            console.log('updating data',req.body)
             
            
             const category = await editCategoryUseCase( Dependencies ).execute( req.body )
