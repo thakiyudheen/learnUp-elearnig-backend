@@ -1,8 +1,9 @@
-import { ICreateCategoryUseCase, IEditCategoryUseCase, IFindCategoryUseCase } from "@/domain/IUseCases/Category";
+import { ICreateCategoryUseCase, IEditCategoryUseCase, IFindCategoryUseCase, IGetAllCategoryUseCase } from "@/domain/IUseCases/Category";
 import { IDependecies } from "./IDependencies";
 
 export interface IuseCases {
     createCategoryUseCase : ( Dependencies : IDependecies ) => ICreateCategoryUseCase,
     editCategoryUseCase : ( Dependencies : IDependecies ) => IEditCategoryUseCase,
-    findCategoryUseCase : ( Dependecies : IDependecies ) => IFindCategoryUseCase
+    findCategoryUseCase : ( Dependecies : IDependecies ) => IFindCategoryUseCase,
+    getAllCategoryUseCase : ( Dependecies : IDependecies ) => IGetAllCategoryUseCase
 }
