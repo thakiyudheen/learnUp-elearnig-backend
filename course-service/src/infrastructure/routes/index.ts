@@ -6,7 +6,7 @@ import { controller } from "../../presentation/controller";
 
 export const routes = ( Dependencies : IDependecies ) => {
     const {} = Dependencies 
-    const { addCategories , findCategory  , updateCategory } = controller( Dependencies ) ;
+    const { addCategories , findCategory  , updateCategory, getAllCategory } = controller( Dependencies ) ;
 
     const router = Router()
 
@@ -18,7 +18,9 @@ export const routes = ( Dependencies : IDependecies ) => {
     
     // find category ---------------------------------
     router.route('/find-category/:categoryName').get( findCategory )
-
+    
+    // find  All category ---------------------------------
+    router.route('/getAll-category').get( getAllCategory )
 
 
 
