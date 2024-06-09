@@ -8,7 +8,7 @@ export const editCategory = async  ( data : {_id : string , categoryName : strin
  
         const category = await Category.findByIdAndUpdate( data._id, {
 
-            title: data.categoryName,
+            categoryName : data.categoryName,
 
             isBlocked: data.isBlocked
 

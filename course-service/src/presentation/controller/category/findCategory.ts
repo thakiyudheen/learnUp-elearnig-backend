@@ -10,7 +10,8 @@ export const findCategoryController = ( Dependencies : IDependecies ) => {
     return async (req: Request, res: Response, next: NextFunction) => {
         try {
             console.log('here reached------------------------------')
-            const  { categoryName } = req.body ;
+            const  { categoryName } = req.params ;
+            console.log('find data', req.params)
            
 
             const category = await findCategoryUseCase( Dependencies ).execute( categoryName )
