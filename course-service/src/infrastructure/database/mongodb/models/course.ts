@@ -66,7 +66,6 @@ const CourseSchema = new Schema({
     },
     priceAmount: {
         type: String,
-        required: true,
     },
     courseThumbnail: {
         type: String,
@@ -77,7 +76,7 @@ const CourseSchema = new Schema({
         default: null,
     },
     lessons: {
-        type: [{ type: Schema.Types.ObjectId, ref: "Lesson" }],
+        type: [LessonSchema],
         required: true,
     },
     attachments: {
