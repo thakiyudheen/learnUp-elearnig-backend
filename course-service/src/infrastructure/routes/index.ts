@@ -26,7 +26,7 @@ export const routes = ( Dependencies : IDependecies ) => {
     router.route('/create-course').post( createCourse )
 
     // get All course---------------------------------
-    router.route('/getAll-course').post( getAllCourse )
+    router.route('/getAll-course').get( getAllCourse )
 
     // create course ---------------------------------
     router.route('/update-course').patch( updateCourse )
