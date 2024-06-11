@@ -48,15 +48,11 @@ const CourseSchema = new Schema({
         type: String,
         required: true,
     },
-    category: {
-        type: Types.ObjectId ,
-        required: true,
-    },
     pricing: {
         type: String,
         required: true,
     },
-    categoryRef: {
+    category: {
         type: Types.ObjectId ,
         required: true,
     },
