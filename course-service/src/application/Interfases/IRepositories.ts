@@ -6,5 +6,5 @@ export interface IRepositories {
      editCategory : (data : {_id : string , categoryName : string , isBlocked : boolean }) => Promise<CategoryEntity>
      findCategory :( categoryName : string ) => Promise< boolean >
      getAllCategories :( ) => Promise< CategoryEntity[] >
-     createCourse : ( data : CourseEntity ) => Promise< CourseEntity | null >
+     createCourse : ( data : CourseEntity ) => Promise< CourseEntity >
     } 
