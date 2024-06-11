@@ -1,46 +1,34 @@
 import { Date, ObjectId } from "mongoose";
 
-interface Lesson {
-    title: string;
-    description: string;
-    thumbnail: string;
-    video: string;
-    attachments?: {
-        title: string;
-        url: string;
-    }
-}
-
-interface Trial {
-    title: string;
-    description: string;
-    thumbnail: string;
-    video: string;
-}
-
-enum PricingType {
-    free = 'free',
-    paid = 'paid'
-}
-
-interface Pricing {
-    amount: number;
-    type: PricingType;
-}
-
 export interface CourseEntity {
-    _id?: ObjectId;
-    title: string;
+    courseTitle: string;
     description: string;
-    thumbnail: string;
-    instructorRef: ObjectId;
+    category: string;
+    pricing: string;
     categoryRef: ObjectId;
-    language?: string;
-    lessons: [Lesson]
-    trial?: Trial;
+    instructorRef: ObjectId;
+    language: string;
+    priceAmount: string;
+    courseThumbnail: string | null;
+    videoTrailer: string | null;
+    lessons: Lesson[];
+    attachments: Attachment[];
+    isBlocked?: boolean;
+    isPublished?: boolean;
     createdAt?: Date;
     updatedAt?: Date;
-    pricing: Pricing;
-    isBlocked?: boolean | string;
-    isPublished?: boolean | string;
 }
+  
+  interface Lesson {
+    title: string;
+    description: string;
+    video: string;
+    objectives: string[];
+    duration: string;
+  }
+  
+  interface Attachment {
+    title: string;
+    url: string;
+  }
+  

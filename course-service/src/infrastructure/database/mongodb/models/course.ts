@@ -1,14 +1,13 @@
+import { CourseEntity } from "@/domain/entities";
 import { Schema, model, Types } from "mongoose";
-const lessonSchema = new Schema({
+
+// Define the Lesson schema
+const LessonSchema = new Schema({
     title: {
         type: String,
         required: true
     },
     description: {
-        type: String,
-        required: true
-    },
-    thumbnail: {
         type: String,
         required: true
     },
@@ -16,61 +15,92 @@ const lessonSchema = new Schema({
         type: String,
         required: true
     },
-    attachments: {
-        title: String,
-        url: String
-    }
+    objectives: [{
+        type: String,
+        required: true
+    }],
+    duration: {
+        type: String,
+        required: true
+    },
 });
 
-const courseSchema = new Schema({
+// Define the Attachment schema
+const AttachmentSchema = new Schema({
     title: {
         type: String,
         required: true
     },
-    description: {
+    url: {
         type: String,
         required: true
     },
-    thumbnail: {
+});
+
+
+// Define the Course schema
+const CourseSchema = new Schema({
+    courseTitle: {
         type: String,
-        required: true
+        required: true,
+    },
+    description: {
+        type: String,
+        required: true,
+    },
+    category: {
+        type: Types.ObjectId ,
+        required: true,
+    },
+    pricing: {
+        type: String,
+        required: true,
+    },
+    categoryRef: {
+        type: Types.ObjectId ,
+        required: true,
     },
     instructorRef: {
         type: Types.ObjectId,
-        ref: "users",
-        required: true
-    },
-    categoryRef: {
-        type: Types.ObjectId,
-        ref: "categories",
-        required: true
+        required: true,
     },
     language: {
         type: String,
-        default: "english"
+        required: true,
     },
-    lessons: [lessonSchema],
-    pricing: {
-        type: {
-            type: String,
-            enum: ["free", "paid"],
-            default: "free"
-        },
-        amount: {
-            type: Number,
-            default: 0
-        }
+    priceAmount: {
+        type: String,
+        required: true,
+    },
+    courseThumbnail: {
+        type: String,
+        default: null,
+    },
+    videoTrailer: {
+        type: String,
+        default: null,
+    },
+    lessons: {
+        type: [{ type: Schema.Types.ObjectId, ref: "Lesson" }],
+        required: true,
+    },
+    attachments: {
+        type: [AttachmentSchema],
+        required: true,
     },
     isBlocked: {
         type: Boolean,
-        default: false
+        default: false,
     },
     isPublished: {
         type: Boolean,
-        default: false
-    }
+        default: false,
+    },
 }, {
-    timestamps: true
+    timestamps: true // Enable timestamps
 });
 
-export const Course = model<CourseEntity>("courses", courseSchema);
+// Create the Course model
+const Course = model<CourseEntity>("Courses", CourseSchema);
+
+export default Course;

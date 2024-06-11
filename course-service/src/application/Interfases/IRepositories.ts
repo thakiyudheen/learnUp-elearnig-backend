@@ -1,4 +1,4 @@
-import { CategoryEntity } from "@/domain/entities";
+import { CategoryEntity, CourseEntity } from "@/domain/entities";
 
 
 export interface IRepositories {
@@ -6,4 +6,5 @@ export interface IRepositories {
      editCategory : (data : {_id : string , categoryName : string , isBlocked : boolean }) => Promise<CategoryEntity>
      findCategory :( categoryName : string ) => Promise< boolean >
      getAllCategories :( ) => Promise< CategoryEntity[] >
+     createCourse : ( data : CourseEntity ) => Promise< CourseEntity | null >
     } 
