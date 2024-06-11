@@ -3,10 +3,10 @@ import Course from "../../models/course";
 
 
 
-export const createCorse = async  ( categoryName : string  ) : Promise < CourseEntity | null> => {
+export const createCourse = async  (  data : CourseEntity ) : Promise < CourseEntity > => {
     try {
  
-        const course= await Course.create( { categoryName } ) ;
+        const course= await Course.create( data ) ;
 
         if( !course ) {
 
