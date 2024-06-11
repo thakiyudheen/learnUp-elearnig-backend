@@ -15,6 +15,7 @@ export interface CourseEntity {
     attachments: Attachment[];
     isBlocked?: boolean;
     isPublished?: boolean;
+    isReject?:boolean;
     createdAt?: Date;
     updatedAt?: Date;
 }

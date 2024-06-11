@@ -91,6 +91,11 @@ const CourseSchema = new Schema({
         type: Boolean,
         default: false,
     },
+    isReject: {
+        type: Boolean,
+        default: false,
+    },
+
 }, {
     timestamps: true // Enable timestamps
 });
