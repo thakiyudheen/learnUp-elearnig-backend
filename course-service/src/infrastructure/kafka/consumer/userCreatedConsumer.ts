@@ -1,6 +1,6 @@
 
 import { userEntity } from "@/domain/entities/UserEntity";
-import { createUser } from "@/infrastructure/database/mongodb/repositories/user";
+import { createUser } from "../../../infrastructure/database/mongodb/repositories/user";
 
 
 
