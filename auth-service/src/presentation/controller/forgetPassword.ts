@@ -27,7 +27,7 @@ export const forgetPasswordController = ( Dependencies : IDependecies ) => {
                 });
 
             }
-
+            
             // generate jwt token------------------------
             const token = await generateForgetPassword({email})
 

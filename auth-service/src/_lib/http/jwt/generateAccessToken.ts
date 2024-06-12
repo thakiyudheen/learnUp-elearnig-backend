@@ -10,6 +10,6 @@ export const generateAccessToken = (
     return jwt.sign(
         payload ,
         String(process.env.ACCESS_TOKEN_SECRET) ,
-        { expiresIn: '1h' }
+        { expiresIn: '15m' }
     );
 };

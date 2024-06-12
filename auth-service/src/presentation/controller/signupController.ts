@@ -16,6 +16,7 @@ export const signupController = ( Dependencies : IDependecies ) => {
 
             req.body.password = await hashPassword( req.body.password ) ;
 
+           
             const  user = await createUserUseCase( Dependencies ).execute( req.body )
 
 
