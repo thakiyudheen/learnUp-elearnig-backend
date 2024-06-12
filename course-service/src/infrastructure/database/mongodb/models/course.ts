@@ -54,10 +54,12 @@ const CourseSchema = new Schema({
     },
     category: {
         type: Types.ObjectId ,
+        ref: 'Category',
         required: true,
     },
     instructorRef: {
         type: Types.ObjectId,
+        ref: 'User',
         required: true,
     },
     language: {
