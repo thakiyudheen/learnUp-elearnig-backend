@@ -8,6 +8,7 @@ import {
 import { IDependecies } from "./IDependencies";
 import { IGetAllCourseUseCase } from "@/domain/IUseCases/course";
 import { IUpdateCourseUseCase } from "@/domain/IUseCases/course/IUpdateCourseUseCase";
+import { IFindCourseByIdUseCase } from "@/domain/IUseCases/course/IFindCourseByIdUseCase";
 
 export interface IuseCases {
     createCategoryUseCase : ( Dependencies : IDependecies ) => ICreateCategoryUseCase,
@@ -17,4 +18,5 @@ export interface IuseCases {
     createCourseUseCase : ( Dependecies : IDependecies ) => ICreateCourseUseCase
     getAllCourseUseCase : ( Dependecies : IDependecies ) => IGetAllCourseUseCase
     updateCourseUseCase : ( Dependecies : IDependecies ) => IUpdateCourseUseCase
+    findCourseByIdUseCase : ( Dependecies : IDependecies ) => IFindCourseByIdUseCase
 }
