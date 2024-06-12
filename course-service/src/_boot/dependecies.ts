@@ -7,5 +7,4 @@ export const Dependencies : IDependecies ={
     useCases,
     repositories
     
-
 }

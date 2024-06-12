@@ -6,6 +6,7 @@ import { getAllCategoryController } from "./category/getAllCategory";
 import { createCourseController } from "./course/createCourse";
 import { updateCourseController } from "./course/updateCourse";
 import { getAllCourseController } from "./course/getAllcourses";
+import { findCourseByIdController } from "./course/findCourseByIdUseCase";
 
 export const controller = ( Dependencies : IDependecies ) => {
     return {
@@ -15,6 +16,7 @@ export const controller = ( Dependencies : IDependecies ) => {
         getAllCategory : getAllCategoryController( Dependencies ),
         createCourse : createCourseController( Dependencies ),
         updateCourse : updateCourseController( Dependencies ),
-        getAllCourse : getAllCourseController( Dependencies )
+        getAllCourse : getAllCourseController( Dependencies ),
+        findCourseById : findCourseByIdController( Dependencies )
     }
 }
