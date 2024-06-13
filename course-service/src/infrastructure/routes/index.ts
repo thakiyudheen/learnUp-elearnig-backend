@@ -32,7 +32,7 @@ export const routes = ( Dependencies : IDependecies ) => {
     router.route('/update-course').patch( updateCourse )
     
     // find course by id ---------------------------------
-    router.route('/get-course-by-id').get( findCourseById )
+    router.route('/get-course-by-id/:_id').get( findCourseById )
 
 
     return router
