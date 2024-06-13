@@ -37,7 +37,7 @@ export const googleAuth = ( Dependencies : IDependecies ) => {
 
             const  user = await findUserByEmail( Dependencies ).execute( email )
 
-            if(user){
+            if(user && !user.isBlocked){
 
                 const accessToken = generateAccessToken({
                     _id : String(user._id) ,

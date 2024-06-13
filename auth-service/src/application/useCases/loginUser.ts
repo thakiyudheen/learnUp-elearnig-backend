@@ -20,7 +20,7 @@ export const loginUseCase = (Dependencies : IDependecies) => {
                 
                 const user : userEntity | null = await findUserByEmail( email )
 
-                if (!user) {
+                if (!user || user.isBlocked) {
 
                     throw new Error('User not found');
 
