@@ -25,10 +25,20 @@ export default async (data: { email : string; isVerified: boolean }) => {
         },
       ],
     };
+    const courseServiceMessage = {
+      topic: "course-service-topic",
+      messages: [
+        {
+          key: "rejectRequestMail",
+          value: JSON.stringify(data.email),
+        },
+      ],
+    };
 
     
     await producer.send(authServiceMessage);
     await producer.send(newServiceMessage);
+    await producer.send(courseServiceMessage);
 
   } catch (error: any) {
     console.error("kafka produce error:", error?.message);

@@ -14,7 +14,8 @@ export interface IRepositories {
      findCategory :( categoryName : string ) => Promise< boolean >
      getAllCategories :( ) => Promise< CategoryEntity[] >
      createCourse : ( data : CourseEntity ) => Promise< CourseEntity >
-     getAllCourse : (  ) => Promise< CourseEntity[] | null >
+     getAllCourse : ( data: { instructorRef ?: string }  ) => Promise< CourseEntity[] | null >
      updateCourse : ( data : data ) => Promise< CourseEntity  >
      findCourseById : ( _id : string ) => Promise< CourseEntity | null>
+     updateAllCourse :  ( data : any ) => Promise< CourseEntity >
     } 

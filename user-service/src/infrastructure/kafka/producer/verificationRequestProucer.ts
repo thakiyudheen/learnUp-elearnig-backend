@@ -25,10 +25,12 @@ export default async (data: { email : string; isVerified: boolean }) => {
         },
       ],
     };
-
+    
+   
     
     await producer.send(authServiceMessage);
     await producer.send(newServiceMessage);
+    
 
   } catch (error: any) {
     console.error("kafka produce error:", error?.message);

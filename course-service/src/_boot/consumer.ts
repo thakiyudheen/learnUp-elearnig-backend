@@ -1,35 +1,36 @@
-import { consumer } from '../infrastructure/kafka'
-import { ISubscriber, createSubscriber } from "../infrastructure/kafka/subscriber";
+import { consumer } from '../infrastructure/kafka';
+import { ICourseSubscriber, createSubscriber } from '../infrastructure/kafka/subscriber';
 
 export const startConsumer = async () => {
     try {
-        await consumer.connect()
+        await consumer.connect();
         await consumer.subscribe({
             topic: 'course-service-topic',
             fromBeginning: true
-        })
+        });
 
         const subscriber = createSubscriber();
 
         await consumer.run({
-
             eachMessage: async ({ message }) => {
-
                 const { key, value } = message;
 
-                const subscriberMethod = String(key) as keyof ISubscriber;
-                const subscriberData = JSON.parse(String(value));
+                const subscriberMethod = String(key) as keyof ICourseSubscriber;
 
                 try {
-                    await subscriber[subscriberMethod](subscriberData);
+                    if (typeof subscriber[subscriberMethod] === 'function') {
+                        const subscriberData = JSON.parse(String(value));
+                        await subscriber[subscriberMethod](subscriberData);
+                    } else {
+                        throw new Error(`${subscriberMethod} is not a function`);
+                    }
                 } catch (error: any) {
-                    throw new Error(error?.message);
+                    console.error(`Error processing message with key ${key}: ${error?.message}`);
                 }
             }
-
         });
     } catch (error: any) {
-        throw new Error("Kafka Consume Error : " + error?.message);
+        console.error("Kafka Consume Error:", error?.message);
     }
 }
 

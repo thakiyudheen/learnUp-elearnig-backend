@@ -2,6 +2,7 @@ import { Date, ObjectId } from "mongoose";
 
 export interface CourseEntity {
     courseTitle: string;
+    subTitle:string
     description: string;
     category: string;
     pricing: string;
@@ -11,6 +12,7 @@ export interface CourseEntity {
     priceAmount: string;
     courseThumbnail: string | null;
     videoTrailer: string | null;
+    level : Level,
     lessons: Lesson[];
     attachments: Attachment[];
     isBlocked?: boolean;
@@ -33,3 +35,8 @@ export interface CourseEntity {
     url: string;
   }
   
+  enum Level {
+    Biginner = "Biginner",
+    Medium = "Medium",
+    Intermidiat = "Intermidiat" 
+  }

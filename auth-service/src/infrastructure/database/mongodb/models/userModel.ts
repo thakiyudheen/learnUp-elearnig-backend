@@ -16,6 +16,16 @@ const userSchema = new Schema({
         index:true,
        
     },
+    qualification: {
+        type: String,
+        index:true,
+       
+    },
+    address: {
+        type: String,
+        index:true,
+       
+    },
     email: {
         type: String,
         required: true,

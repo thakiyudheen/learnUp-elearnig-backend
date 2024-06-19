@@ -1,3 +1,4 @@
+import { resetPasswordProducer } from "../../infrastructure/kafka/producer";
 import { hashPassword } from "../../_lib/http/bcrypt";
 import { generateForgetPassword, verifyToken } from "../../_lib/http/jwt";
 import { IDependecies } from "../../application/Interfases/IDependencies";
@@ -23,6 +24,8 @@ export const resetPasswordController = ( Dependencies : IDependecies ) => {
 
             const  reset  = await resetPasswordUseCase( Dependencies ).execute( email , password )
 
+
+            await resetPasswordProducer({email,password})
           
             if( !reset ) {
                 return  res.status(200).json( { 

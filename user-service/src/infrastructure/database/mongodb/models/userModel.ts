@@ -1,4 +1,4 @@
-import { userEntity } from "../../../../domain/entities/UserEntity";
+import { userEntity } from "@/domain/entities/UserEntity";
 import { Schema, model } from "mongoose";
 
 
@@ -12,6 +12,16 @@ const userSchema = new Schema({
         required: true
     },
     username: {
+        type: String,
+        index:true,
+       
+    },
+    qualification: {
+        type: String,
+        index:true,
+       
+    },
+    address: {
         type: String,
         index:true,
        

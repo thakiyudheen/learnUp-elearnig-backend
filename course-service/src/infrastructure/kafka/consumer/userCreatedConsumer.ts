@@ -1,10 +1,10 @@
 
-import { userEntity } from "@/domain/entities/UserEntity";
+import { userEntity } from "../../../domain/entities/UserEntity";
 import { createUser } from "../../../infrastructure/database/mongodb/repositories/user";
 
 
 
- export default async ( data : userEntity ) => {
+ export const userCreatedConsumer= async ( data : userEntity ) => {
     try {
         console.log('the usercreation kafka working',data)
         await createUser(data)

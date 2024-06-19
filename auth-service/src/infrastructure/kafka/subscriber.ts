@@ -1,4 +1,4 @@
-import { blockUnblockConsumer, rejectRequestConsumer, verifyRequestConsumer } from "./consumers";
+import { blockUnblockConsumer, rejectRequestConsumer, updateUserConsumer, verifyRequestConsumer } from "./consumers";
 import sendVerificationMailConsumer from "./consumers/verificationMailConsumer";
 
 export interface ISubscriber {
@@ -6,6 +6,7 @@ export interface ISubscriber {
 	blockUnblockUser(data : any ) : Promise<void>;
 	verificationRequest(data : any ) : Promise<void>;
 	rejectRequest(data : any ) : Promise<void>;
+	updateUser(data : any ) : Promise<void>;
 }
 
 export interface IAuthSubscriber
@@ -14,6 +15,7 @@ export interface IAuthSubscriber
 		|"blockUnblockUser"
 		|"verificationRequest"
 		|"rejectRequest"
+		|"updateUser"
 	> {}
 
 export const createSubscriber = (): IAuthSubscriber => {
@@ -22,6 +24,7 @@ export const createSubscriber = (): IAuthSubscriber => {
 		sendVerificationMail: sendVerificationMailConsumer,
 		blockUnblockUser : blockUnblockConsumer,
 		verificationRequest : verifyRequestConsumer,
-		rejectRequest : rejectRequestConsumer
+		rejectRequest : rejectRequestConsumer,
+		updateUser : updateUserConsumer
 	}
 };

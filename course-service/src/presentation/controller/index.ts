@@ -7,6 +7,8 @@ import { createCourseController } from "./course/createCourse";
 import { updateCourseController } from "./course/updateCourse";
 import { getAllCourseController } from "./course/getAllcourses";
 import { findCourseByIdController } from "./course/findCourseByIdUseCase";
+import { updateAllCourseController } from "./course/updateAllcourse";
+
 
 export const controller = ( Dependencies : IDependecies ) => {
     return {
@@ -17,6 +19,7 @@ export const controller = ( Dependencies : IDependecies ) => {
         createCourse : createCourseController( Dependencies ),
         updateCourse : updateCourseController( Dependencies ),
         getAllCourse : getAllCourseController( Dependencies ),
-        findCourseById : findCourseByIdController( Dependencies )
+        findCourseById : findCourseByIdController( Dependencies ),
+        updateAllCourse : updateAllCourseController( Dependencies )
     }
 }

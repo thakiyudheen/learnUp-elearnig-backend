@@ -9,7 +9,7 @@ export default async ( data : { email : string , otp : string }) => {
 
     } catch ( error : any ) {
 
-        console.log('The error from otp-consumer', error.message);
+        console.log('The error from -consumer', error.message);
         
     }
 }

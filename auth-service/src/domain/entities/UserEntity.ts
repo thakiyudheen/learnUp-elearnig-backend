@@ -41,6 +41,8 @@ export interface userEntity  {
     username : string | null | undefined;
     email : string ;
     password ?: string ;
+    qualification?:string;
+    address:string;
     role : Role ;
     contact ?: contact ;
     isBlocked ?: boolean ;
@@ -49,6 +51,7 @@ export interface userEntity  {
     isGauth ?: boolean ;
     createdAt ?: Date ;
     updatedAt ?: Date ;
+    avatar?:string;
     otp ?: string ;
     proffession ?: proffession ;
 

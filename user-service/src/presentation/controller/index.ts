@@ -6,6 +6,8 @@ import { blockUnblockController } from "./blockUnblock";;
 import { verifyRequestContoller } from "./verifyRequest";
 import { getRequestController } from "./getRequest";
 import { rejectRequestContoller } from "./rejectRequest";
+import updateUserProducer from "@/infrastructure/kafka/producer/updateUserProducer";
+import { updateUserContoller } from "./updateUser";
 
 
 
@@ -16,6 +18,7 @@ export const controller = ( Dependencies : IDependecies ) => {
         blockUnblocks : blockUnblockController( Dependencies ),
         verifyRequest : verifyRequestContoller( Dependencies ),
         getRequests : getRequestController( Dependencies ),
-        rejectRequest : rejectRequestContoller( Dependencies )
+        rejectRequest : rejectRequestContoller( Dependencies ),
+        updateUser : updateUserContoller( Dependencies )
     }
 }

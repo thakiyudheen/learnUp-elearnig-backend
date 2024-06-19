@@ -6,9 +6,10 @@ import { jwtMiddleware } from "../../_lib/common/middleWares/jwtMimiddleWare";
 
 
 
+
 export const routes = ( Dependencies : IDependecies ) => {
     const {} = Dependencies 
-    const { getAllInstructors , getAllstudents, blockUnblocks , verifyRequest , getRequests , rejectRequest} = controller( Dependencies ) ;
+    const { getAllInstructors , getAllstudents, blockUnblocks , verifyRequest , getRequests , rejectRequest,updateUser} = controller( Dependencies ) ;
 
     const router = Router()
 
@@ -30,6 +31,8 @@ export const routes = ( Dependencies : IDependecies ) => {
      // reject requests  --------------------------
      router.route('/reject-request').patch( rejectRequest )
      
+     // update user  --------------------------
+     router.route('/update-user').put( updateUser )
 
     return router
 }

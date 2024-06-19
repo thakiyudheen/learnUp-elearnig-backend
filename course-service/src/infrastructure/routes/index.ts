@@ -6,7 +6,7 @@ import { controller } from "../../presentation/controller";
 
 export const routes = ( Dependencies : IDependecies ) => {
     const {} = Dependencies 
-    const { addCategories , findCategory , findCourseById , updateCategory, getAllCategory , createCourse,getAllCourse,updateCourse} = controller( Dependencies ) ;
+    const { addCategories , findCategory , findCourseById , updateCategory, getAllCategory , createCourse,getAllCourse,updateCourse ,updateAllCourse} = controller( Dependencies ) ;
 
     const router = Router()
 
@@ -33,7 +33,9 @@ export const routes = ( Dependencies : IDependecies ) => {
     
     // find course by id ---------------------------------
     router.route('/get-course-by-id/:_id').get( findCourseById )
-
+    
+    // update all course ---------------------------------
+    router.route('/update-all-course').put( updateAllCourse )
 
     return router
 }

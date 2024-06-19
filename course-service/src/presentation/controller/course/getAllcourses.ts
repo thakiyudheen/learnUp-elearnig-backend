@@ -12,9 +12,10 @@ export const getAllCourseController = ( Dependencies : IDependecies ) => {
             
 
             console.log('course data', req.body)
+            console.log('this is query ',req.query)
            
 
-            const course = await getAllCourseUseCase( Dependencies ).execute(  )
+            const course = await getAllCourseUseCase( Dependencies ).execute( req.query )
             
             if(course){
 

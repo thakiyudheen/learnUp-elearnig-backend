@@ -81,6 +81,14 @@ const CourseSchema = new Schema({
         type: [LessonSchema],
         required: true,
     },
+    level: {
+        type: String,
+        required: true,
+    },
+    subTitle: {
+        type: String,
+        required: true,
+    },
     attachments: {
         type: [AttachmentSchema],
         required: true,

@@ -6,6 +6,7 @@ import {
     IGetAllInstructorUseCase,
     IGetAllStudentUseCase, 
     IGetRequestUseCase, 
+    IUpdateUserUseCase, 
     IVerificationRequestUseCase } from "../../domain/IUseCases";
 
 export interface IuseCases {
@@ -16,5 +17,6 @@ export interface IuseCases {
     verificationRequestUseCase : ( Dependencies : any ) => IVerificationRequestUseCase,
     getRequestUseCase : ( Dependencies : any ) => IGetRequestUseCase,
     rejectRequestUseCase : ( Dependencies : any ) => IRejectRequestUseCase
+    updateUserUseCase : ( Dependencies : any ) => IUpdateUserUseCase
 
 }

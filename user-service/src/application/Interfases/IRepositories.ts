@@ -14,4 +14,5 @@ export interface IRepositories {
     verifyRequest : ( data : {email : string ,isVerified : boolean }) => Promise < void >
     getRequest : ( ) => Promise < userEntity[] | null >
     rejectRequest : (data : {email : string ,isVerified : boolean }) => Promise < void >
+    updateUser : (data : userEntity) => Promise < userEntity | null >
 }

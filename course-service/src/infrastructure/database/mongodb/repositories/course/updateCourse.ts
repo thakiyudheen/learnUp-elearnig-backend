@@ -12,12 +12,13 @@ interface data{
 export const updateCourse = async  (  data : data ) : Promise < CourseEntity > => {
     try {
  
+        
         const course = await Course.findByIdAndUpdate({
             _id: data._id
         }, data, {
             new: true
         });
-
+        console.log('this is course',course)
         if( !course ) {
 
             throw new Error('course updation Failed ');
@@ -27,7 +28,7 @@ export const updateCourse = async  (  data : data ) : Promise < CourseEntity > =
 
     } catch ( error : any ){
 
-    
+        console.log('this is updatiing err',error)
         throw new Error(error?.message);
 
     }
