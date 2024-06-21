@@ -1,4 +1,4 @@
-import { CategoryEntity, CourseEntity } from "@/domain/entities";
+import { CategoryEntity, CourseEntity, EnrollmentEntity } from "@/domain/entities";
 
 interface data{
      _id : string,
@@ -18,4 +18,7 @@ export interface IRepositories {
      updateCourse : ( data : data ) => Promise< CourseEntity  >
      findCourseById : ( _id : string ) => Promise< CourseEntity | null>
      updateAllCourse :  ( data : any ) => Promise< CourseEntity >
+     getEnrollmentById :  ( _id : string ) => Promise< EnrollmentEntity[] >
+     createEnrollment :  ( data : any  ) => Promise< EnrollmentEntity >
+
     } 

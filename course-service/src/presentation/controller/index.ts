@@ -8,6 +8,8 @@ import { updateCourseController } from "./course/updateCourse";
 import { getAllCourseController } from "./course/getAllcourses";
 import { findCourseByIdController } from "./course/findCourseByIdUseCase";
 import { updateAllCourseController } from "./course/updateAllcourse";
+import { getEnrollmentByIdController } from "./enrollment/getEnrollmentById";
+import { createEnrollmentController } from "./enrollment/createEnrollmentController";
 
 
 export const controller = ( Dependencies : IDependecies ) => {
@@ -20,6 +22,8 @@ export const controller = ( Dependencies : IDependecies ) => {
         updateCourse : updateCourseController( Dependencies ),
         getAllCourse : getAllCourseController( Dependencies ),
         findCourseById : findCourseByIdController( Dependencies ),
-        updateAllCourse : updateAllCourseController( Dependencies )
+        updateAllCourse : updateAllCourseController( Dependencies ),
+        getEnrollmentById : getEnrollmentByIdController( Dependencies ),
+        createEnrollment : createEnrollmentController( Dependencies ),
     }
 }

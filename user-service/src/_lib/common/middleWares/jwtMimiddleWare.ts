@@ -2,7 +2,7 @@ import { Request, Response, NextFunction } from "express";
 import jwt from 'jsonwebtoken';
 import { config } from 'dotenv' ;
 import { access } from "fs";
-import { generateAccessToken } from "@/_lib/utils/http/jwt/generateAccessToken";
+import { generateAccessToken } from "../../../_lib/utils/http/jwt/generateAccessToken";
 
 
 config()
@@ -43,7 +43,7 @@ export const jwtMiddleware = async (req: Request, res: Response, next: NextFunct
                 }
                 if(!user && refresh_token){
 
-                    user = await jwt.verify(refresh_token, process.env.ACCESS_TOKEN_SECRET!) as UserPayload;
+                    user = await jwt.verify(refresh_token, process.env.REFRESH_TOKEN_SECRET!) as UserPayload;
 
                     if(user){
                     const newAccessToken = generateAccessToken(user);

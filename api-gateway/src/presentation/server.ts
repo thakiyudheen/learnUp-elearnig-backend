@@ -54,6 +54,11 @@ const routes = [
         context: "/api/course",
         target: "http://localhost:3004",
         changeOrigin: true,
+    },
+    {
+        context: "/api/payment",
+        target: "http://localhost:3005",
+        changeOrigin: true,
     }
 ];
 
