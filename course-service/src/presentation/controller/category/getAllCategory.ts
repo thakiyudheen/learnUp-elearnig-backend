@@ -10,7 +10,7 @@ export const getAllCategoryController = ( Dependencies : IDependecies ) => {
     return async (req: Request, res: Response, next: NextFunction) => {
         try {
 
-            const category = await getAllCategoryUseCase( Dependencies ).execute(  )
+            const category = await getAllCategoryUseCase( Dependencies ).execute( req.query )
             
             if(category){
 

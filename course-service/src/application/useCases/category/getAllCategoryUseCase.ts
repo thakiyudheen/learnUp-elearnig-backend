@@ -13,10 +13,10 @@ export const getAllCategoryUseCase = (Dependencies : IDependecies ) => {
 
     return {
 
-        execute: async () => { 
+        execute: async (data:{ page?:number , limit ?:number}) => { 
             try {
 
-                return await getAllCategories( )
+                return await getAllCategories( data )
 
             } catch ( error : any ) {
 

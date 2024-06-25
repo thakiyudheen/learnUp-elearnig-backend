@@ -20,7 +20,11 @@ export const routes = ( Dependencies : IDependecies ) => {
         updateCourse ,
         updateAllCourse , 
         getEnrollmentById ,
-        createEnrollment
+        createEnrollment,
+        getProgressById,
+        updateProgressById,
+        createReview,
+        getReviews
 
     } = controller( Dependencies ) ;
 
@@ -54,10 +58,22 @@ export const routes = ( Dependencies : IDependecies ) => {
     router.route('/update-all-course').put( jwtMiddleware , updateAllCourse )
     
     // get Enrollment by Id -------------------------------
-    router.route('/getEnrollment-ById/:_id').get( jwtMiddleware , getEnrollmentById )
+    router.route('/getEnrollment-ById').get( jwtMiddleware , getEnrollmentById )
     
     // create Enrollment  ----------------------------------
     router.route('/createEnrollment').post( jwtMiddleware , createEnrollment  )
+    
+    // get progress  ----------------------------------
+    router.route('/getProgress-ById').get( jwtMiddleware , getProgressById  )
+    
+    // update progress  ----------------------------------
+    router.route('/update-progress').post( jwtMiddleware , updateProgressById )
+    
+    // create review ----------------------------------
+    router.route('/create-review').post( jwtMiddleware , createReview )
+    
+    // get review ----------------------------------
+    router.route('/get-review').get( jwtMiddleware , getReviews )
 
     return router
 }

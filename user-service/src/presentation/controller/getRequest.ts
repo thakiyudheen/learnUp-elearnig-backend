@@ -9,10 +9,10 @@ export const getRequestController = ( Dependencies : IDependecies ) => {
     
     return async (req: Request, res: Response, next: NextFunction) => {
         try {
-            console.log('here reached------------------------------')
+            console.log('here reached------------------------------',req.query)
             
 
-            const  requests = await getRequestUseCase( Dependencies ).execute( )
+            const  requests = await getRequestUseCase( Dependencies ).execute( req.query )
 
             if( !requests ){
               return res.status(200).json( { 

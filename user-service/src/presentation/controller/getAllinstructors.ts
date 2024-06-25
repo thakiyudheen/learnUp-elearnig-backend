@@ -9,10 +9,10 @@ export const getAllInstructorsController = ( Dependencies : IDependecies ) => {
     
     return async (req: Request, res: Response, next: NextFunction) => {
         try {
-            console.log('here reached------------------------------')
+            console.log('here reached------------------------------',req.query)
             
 
-            const  instructors = await getAllInstructorUseCase( Dependencies ).execute( )
+            const  instructors = await getAllInstructorUseCase( Dependencies ).execute( req.query )
 
             if( !instructors ){
               return res.status(200).json( { 

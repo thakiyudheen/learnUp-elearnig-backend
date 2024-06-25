@@ -12,10 +12,10 @@ export const getRequestUseCase = (Dependencies : IDependecies) => {
 
     return {
 
-        execute: async ( ) => { 
+        execute: async (  data: { page?:number,limit?:number}) => { 
             try {
 
-                return await getRequest( )  
+                return await getRequest( data )  
 
             } catch ( error : any ) {
 

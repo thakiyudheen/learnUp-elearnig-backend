@@ -10,6 +10,11 @@ import { findCourseByIdController } from "./course/findCourseByIdUseCase";
 import { updateAllCourseController } from "./course/updateAllcourse";
 import { getEnrollmentByIdController } from "./enrollment/getEnrollmentById";
 import { createEnrollmentController } from "./enrollment/createEnrollmentController";
+import { getProgressByIdController } from "./enrollment/getProgressById";
+import { updateProgressByIdUseCase } from "@/application/useCases";
+import { updateProgressByIdController } from "./enrollment/updateProgressById";
+import { createReviewController } from "./review/createReviews";
+import { getReviewsController } from "./review/getReviews";
 
 
 export const controller = ( Dependencies : IDependecies ) => {
@@ -25,5 +30,9 @@ export const controller = ( Dependencies : IDependecies ) => {
         updateAllCourse : updateAllCourseController( Dependencies ),
         getEnrollmentById : getEnrollmentByIdController( Dependencies ),
         createEnrollment : createEnrollmentController( Dependencies ),
+        getProgressById : getProgressByIdController( Dependencies ),
+        updateProgressById : updateProgressByIdController( Dependencies ),
+        createReview : createReviewController( Dependencies ),
+        getReviews : getReviewsController( Dependencies ),
     }
 }

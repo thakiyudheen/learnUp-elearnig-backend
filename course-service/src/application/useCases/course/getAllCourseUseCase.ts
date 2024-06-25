@@ -15,7 +15,7 @@ export const getAllCourseUseCase = (Dependencies : IDependecies ) => {
 
     return {
 
-        execute: async ( data: { instructorRef ?: string } ) => { 
+        execute: async ( data: { instructorRef ?: string , isPublished? : boolean, page?:number,limit?:number  } ) => { 
             try {
 
                 return await getAllCourse( data )

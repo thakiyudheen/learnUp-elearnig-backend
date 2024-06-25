@@ -1,5 +1,5 @@
 import { CategoryEntity } from "@/domain/entities";
 
 export interface IGetAllCategoryUseCase {
-    execute ( ) : Promise< CategoryEntity[] >
+    execute ( data:{ page?:number , limit ?:number} ) : Promise< CategoryEntity[] >
 }

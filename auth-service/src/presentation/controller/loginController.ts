@@ -16,7 +16,7 @@ export const loginController = ( Dependencies : IDependecies ) => {
 
             const  user = await loginUseCase( Dependencies ).execute( email , password ) ;
 
-            if(!user){
+            if(!user||user.isGauth){
 
               return res.status(200).json( { 
 

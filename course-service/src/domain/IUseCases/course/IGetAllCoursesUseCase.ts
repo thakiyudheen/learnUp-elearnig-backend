@@ -2,6 +2,11 @@
 import { CategoryEntity, CourseEntity } from "@/domain/entities";
 
 
+interface PaginationData {
+    courses: CourseEntity[];
+    totalItems: number;
+}
+
 export interface IGetAllCourseUseCase {
-    execute ( data: { instructorRef ?: string } ) : Promise< CourseEntity[] | null >
+    execute ( data: { instructorRef ?: string , isPublished?:boolean,page?:number,limit?:number } ) : Promise< PaginationData | null >
 }

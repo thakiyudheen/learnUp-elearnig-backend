@@ -2,17 +2,32 @@ import { userEntity } from "../../../../domain/entities/UserEntity";
 import { User } from "../models";
 
 
-export const getAllStudents = async  ( ) : Promise < userEntity[] | null > => {
+interface PaginationData {
+    students: userEntity[];
+    totalItems: number;
+    
+}
+
+export const getAllStudents = async  (data:{page:number,limit:number} ) : Promise < PaginationData | null > => {
     try {
        
-        const students = await User.find( { role : 'student' } ) ;
+        const { page = 1, limit = 10 } = data;
+        console.log('page',data)
+        const totalItems = await User.countDocuments({});
+        const pageNumber = Math.max(1, page);
+        const limitNumber = Math.max(1, limit);
+
+        const students = await User.find({})
+            .skip((pageNumber - 1) * limitNumber)
+            .limit(limitNumber);
+
 
         if( !students ) {
 
             throw new Error('User finding Error ')
         }
 
-        return students
+        return {students,totalItems}
 
     } catch ( error : any ){
 

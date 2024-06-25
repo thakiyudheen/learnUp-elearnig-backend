@@ -1,8 +1,15 @@
-import { Dependencies } from "@/_boot/dependecies";
 import { IDependecies } from "@/application/Interfases/IDependencies";
-import { CategoryEntity, CourseEntity } from "@/domain/entities";
-import { NextFunction, Request, Response } from "express";
 
+
+interface EnrollmentQueryParams {
+    userId?: string;
+    page: number;
+    limit: number;
+    search?: string;
+    categories?: string[];
+    levels?: string[];
+    sort?: 'asc' | 'desc';
+  }
 
 
 
@@ -14,10 +21,11 @@ export const getEnrollmentByIdUseCase = (Dependencies : IDependecies ) => {
 
     return {
 
-        execute: async ( _id : string ) => { 
+        execute: async ( data : EnrollmentQueryParams  ) => { 
             try {
+                console.log('this is usecase')
 
-                return await getEnrollmentById( _id )
+                return await getEnrollmentById( data )
 
             } catch ( error : any ) {
 

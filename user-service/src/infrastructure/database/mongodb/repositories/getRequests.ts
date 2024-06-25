@@ -1,23 +1,67 @@
+// import { userEntity } from "../../../../domain/entities/UserEntity";
+// import { User } from "../models";
+
+
+// export const getRequest = async  (  ) : Promise < userEntity[] | null > => {
+//     try {
+       
+//         const requested  = await User.find( { role : 'instructor' } ) ;
+
+//         if( !requested ) {
+
+//             throw new Error('requestor finding Error ')
+//         }
+
+//         return requested
+
+//     } catch ( error : any ){
+
+    
+//         throw new Error(error?.message);
+
+//     }
+// }
+
 import { userEntity } from "../../../../domain/entities/UserEntity";
 import { User } from "../models";
 
+interface PaginationData {
+    requested: userEntity[];
+    totalItems: number;
+}
 
-export const getRequest = async  ( ) : Promise < userEntity[] | null > => {
+interface PaginationInput {
+    page?: number;
+    limit?: number;
+}
+
+export const getRequest = async ({ page = 1, limit = 10 }: PaginationInput): Promise<PaginationData | null> => {
     try {
-       
-        const requested  = await User.find( { role : 'instructor' } ) ;
+        // Validate and adjust page and limit values
+        const pageNumber = Math.max(1, page);
+        const limitNumber = Math.max(1, limit);
 
-        if( !requested ) {
+      
+        const totalItems = await User.countDocuments({ role: 'instructor' });
 
-            throw new Error('requestor finding Error ')
+        
+        const requested = await User.find({ role: 'instructor' })
+            .skip((pageNumber - 1) * limitNumber)
+            .limit(limitNumber);
+
+        if (!requested) {
+            throw new Error('Error finding requestors');
         }
 
-        return requested
+       
+        const totalPages = Math.ceil(totalItems / limitNumber);
 
-    } catch ( error : any ){
-
-    
+        return {
+            requested,
+            totalItems,
+           
+        };
+    } catch (error: any) {
         throw new Error(error?.message);
-
     }
-}
+};

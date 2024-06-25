@@ -1,12 +1,27 @@
 import { CategoryEntity } from "@/domain/entities";
 import { Category } from "../../models";
+import { log } from "console";
 
 
 
-export const getAllCategories = async  ( ) : Promise < CategoryEntity[] > => {
+export const getAllCategories = async  ( data : { page ?: number , limit ?: number } ) : Promise < CategoryEntity[] > => {
     try {
- 
-        const category = await Category.find( ) ;
+        
+        let category;
+        
+        
+        if(data?.page && data?.limit ){
+            
+            
+            category = await Category.find( ).skip((data.page - 1) * data.limit).limit(data.limit) ;
+            
+        }else{
+            
+            category = await Category.find( ) ;
+            
+        }
+       
+        
 
         if( !category ) {
 

@@ -12,10 +12,10 @@ export const getAllStudentUseCase = (Dependencies : IDependecies) => {
 
     return {
 
-        execute: async ( ) => { 
+        execute: async ( data: { page?:number,limit?:number} ) => { 
             try {
 
-                return await getAllStudents( )  
+                return await getAllStudents( data )  
 
             } catch ( error : any ) {
 

@@ -1,5 +1,14 @@
 import { CategoryEntity, CourseEntity, EnrollmentEntity } from "@/domain/entities";
 
+interface EnrollmentQueryParams {
+    userId?: string;
+    page: number;
+    limit: number;
+    search?: string;
+    categories?: string[];
+    levels?: string[];
+    sort?: 'asc' | 'desc';
+  }
 export interface IGetEnrollmentByIdUseCase {
-    execute ( _id : string ) : Promise< EnrollmentEntity[] >
+    execute ( data : EnrollmentQueryParams ) : Promise< EnrollmentEntity[] >
 }
