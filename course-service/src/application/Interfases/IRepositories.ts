@@ -37,6 +37,8 @@ export interface IRepositories {
      updateProgressById :  ( data : {userId:string ,courseId:string,progress:any}  ) => Promise < void >
      createReview :  ( data:ReviewEntity ) => Promise <ReviewEntity >
      getReviews :  ( data:{ page?:number , limit ?:number,courseId:string} ) => Promise < {reviews: ReviewEntity[],totalItems: number;} >
+     getStudentsForChat :  ( data:{ instructorId: string} ) => Promise < EnrollmentEntity[] >
+     getInstructorsForChat :  ( data:{ userId: string} ) => Promise < CourseEntity[] >
 
 
     } 

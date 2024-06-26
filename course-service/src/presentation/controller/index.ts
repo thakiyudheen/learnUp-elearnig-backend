@@ -11,10 +11,12 @@ import { updateAllCourseController } from "./course/updateAllcourse";
 import { getEnrollmentByIdController } from "./enrollment/getEnrollmentById";
 import { createEnrollmentController } from "./enrollment/createEnrollmentController";
 import { getProgressByIdController } from "./enrollment/getProgressById";
-import { updateProgressByIdUseCase } from "@/application/useCases";
 import { updateProgressByIdController } from "./enrollment/updateProgressById";
 import { createReviewController } from "./review/createReviews";
 import { getReviewsController } from "./review/getReviews";
+import { getStudentForChatController } from "./enrollment/getStudentForChat";
+import { getInstructorForChatController } from "./enrollment/getInstructorForChat";
+
 
 
 export const controller = ( Dependencies : IDependecies ) => {
@@ -34,5 +36,7 @@ export const controller = ( Dependencies : IDependecies ) => {
         updateProgressById : updateProgressByIdController( Dependencies ),
         createReview : createReviewController( Dependencies ),
         getReviews : getReviewsController( Dependencies ),
+        getStudentsForChat : getStudentForChatController( Dependencies ),
+        getInstructorsForChat : getInstructorForChatController( Dependencies ),
     }
 }

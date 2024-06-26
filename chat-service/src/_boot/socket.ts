@@ -11,7 +11,6 @@ export default async (server: Server,) => {
             methods: ["GET", "POST"]
 
         }})
-    // console.log('here reache,',io)
     io.on("connection", (socket: Socket) => {
 
         console.log('socket io connected');

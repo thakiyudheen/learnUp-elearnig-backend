@@ -59,6 +59,11 @@ const routes = [
         context: "/api/payment",
         target: "http://localhost:3005",
         changeOrigin: true,
+    },
+    {
+        context: "/api/chat",
+        target: "http://localhost:3006",
+        changeOrigin: true,
     }
 ];
 

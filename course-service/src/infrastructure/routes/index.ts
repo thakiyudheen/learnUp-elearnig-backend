@@ -24,7 +24,9 @@ export const routes = ( Dependencies : IDependecies ) => {
         getProgressById,
         updateProgressById,
         createReview,
-        getReviews
+        getReviews,
+        getStudentsForChat,
+        getInstructorsForChat
 
     } = controller( Dependencies ) ;
 
@@ -74,6 +76,15 @@ export const routes = ( Dependencies : IDependecies ) => {
     
     // get review ----------------------------------
     router.route('/get-review').get( jwtMiddleware , getReviews )
+    
+    // get students for chat ----------------------------------
+    router.route('/get-studentForChat').get( jwtMiddleware , getStudentsForChat )
+
+    // get instructor for chat ----------------------------------
+    router.route('/get-instructorForChat').get( jwtMiddleware , getInstructorsForChat )
+
+
+
 
     return router
 }
