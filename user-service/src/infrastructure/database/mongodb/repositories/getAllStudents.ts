@@ -17,7 +17,7 @@ export const getAllStudents = async  (data:{page:number,limit:number} ) : Promis
         const pageNumber = Math.max(1, page);
         const limitNumber = Math.max(1, limit);
 
-        const students = await User.find({})
+        const students = await User.find({role:'student'})
             .skip((pageNumber - 1) * limitNumber)
             .limit(limitNumber);
 

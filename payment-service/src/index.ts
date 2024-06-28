@@ -6,6 +6,7 @@ import database from "./_boot/database";
         server.start()
 
         database()
+        await Promise.all([database()])
 
     } catch ( error: any ){
         

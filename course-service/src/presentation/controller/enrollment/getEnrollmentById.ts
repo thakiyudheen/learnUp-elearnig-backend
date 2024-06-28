@@ -31,9 +31,9 @@ export const getEnrollmentByIdController = ( Dependencies : IDependecies ) => {
                 sort: req.query.sort as 'asc' | 'desc'
               };
            
-
+ 
             const enrollment = await getEnrollmentByIdUseCase( Dependencies ).execute( data )
-            
+            console.log('the real dadta',enrollment)
             if(!enrollment){
 
                 throw new Error('Error while fetching Enrollment')

@@ -14,6 +14,6 @@ export const generateAccessToken = (
     return jwt.sign(
         newPayload,
         String(process.env.ACCESS_TOKEN_SECRET),
-        { expiresIn: '1m' }
+        { expiresIn: '1h' }
     );
 };

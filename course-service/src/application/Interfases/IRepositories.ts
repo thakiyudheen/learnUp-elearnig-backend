@@ -39,6 +39,7 @@ export interface IRepositories {
      getReviews :  ( data:{ page?:number , limit ?:number,courseId:string} ) => Promise < {reviews: ReviewEntity[],totalItems: number;} >
      getStudentsForChat :  ( data:{ instructorId: string} ) => Promise < EnrollmentEntity[] >
      getInstructorsForChat :  ( data:{ userId: string} ) => Promise < CourseEntity[] >
+     isEnrollmentExist :  ( data:any ) => Promise < EnrollmentEntity >
 
 
     } 

@@ -1,4 +1,4 @@
-import { rejectRequestConsumer, updateUserConsumer, userCreatedConsumer, verifyRequestConsumer } from "./consumer"
+import { coursePurchaseSuccessConsumer, rejectRequestConsumer, updateUserConsumer, userCreatedConsumer, verifyRequestConsumer } from "./consumer"
 import { blockUnblockConsumer } from "./consumer/blockUnblockConsumer"
 import { createEnrollmentConsumer } from "./consumer/createEnrollmentConsumer"
 import { resetPasswordConsumer } from "./consumer/resetPasswordConsumer"
@@ -13,6 +13,7 @@ export interface ICourseSubscriber {
     verificationRequest:(data: any) => Promise<void>
     updateUser :(data: any) => Promise<void>
     createEnrollment :(data: any) => Promise<void>
+    coursePurchaseSuccess :(data: any) => Promise<void>
     
 
 }
@@ -26,6 +27,7 @@ export interface ICousrseSubscriber extends Pick<
                 |"verificationRequest"
                 |"updateUser"
                 |"createEnrollment"
+                |"coursePurchaseSuccess"
 > { }
 
 export const createSubscriber = (): ICourseSubscriber => {
@@ -36,6 +38,7 @@ export const createSubscriber = (): ICourseSubscriber => {
         rejectRequest : rejectRequestConsumer,
         verificationRequest : verifyRequestConsumer,
         updateUser : updateUserConsumer,
-        createEnrollment : createEnrollmentConsumer
+        createEnrollment : createEnrollmentConsumer,
+        coursePurchaseSuccess : coursePurchaseSuccessConsumer
     }
 }

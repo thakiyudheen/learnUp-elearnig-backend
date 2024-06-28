@@ -25,6 +25,15 @@ export const createUserProducer = async (data: userEntity) => {
 					},
 				],
 			},
+			{
+				topic: "chat-service-topic",
+				messages: [
+					{
+						key: "userCreated",
+						value: JSON.stringify(data),
+					},
+				],
+			},
 		]
 
 		console.log(message, "produced--->");

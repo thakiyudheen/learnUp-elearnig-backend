@@ -1,3 +1,6 @@
 export * from './createChat'
 export * from './createMessage'
 export * from './getChatByUserId'
+export * from './updateProfit'
+export * from './getMessageByChatId'
+export * from './createUser'

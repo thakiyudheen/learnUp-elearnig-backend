@@ -1,4 +1,4 @@
-import { Dependencies } from "../../_boot/dependecies";
+import coursePurcahseSuccessProducer from "../../infrastructure/kafka/producer/coursePurcahseSuccessProducer";
 import { IDependecies } from "../../application/Interfases/IDependencies";
 import createEnrollmentProducer from "../../infrastructure/kafka/producer/createEnrollmentProducer";
 import { NextFunction, Request, Response } from "express";
@@ -28,6 +28,7 @@ export const createPaymentController = ( Dependencies : IDependecies ) => {
             }
 
             await createEnrollmentProducer( data )
+            await coursePurcahseSuccessProducer(data)
 
            
 

@@ -9,7 +9,7 @@ import { IDependecies } from "./IDependencies";
 import { IGetAllCourseUseCase, IUpdateAllCourseUseCase } from "@/domain/IUseCases/course";
 import { IUpdateCourseUseCase } from "@/domain/IUseCases/course/IUpdateCourseUseCase";
 import { IFindCourseByIdUseCase } from "@/domain/IUseCases/course/IFindCourseByIdUseCase";
-import { ICreateEnrollmentUseCase, IGetEnrollmentByIdUseCase, IGetInstructorsForChatUseCase, IGetProgressByIdUseCase, IGetStudentsForChatUseCase, IUpdateProgressByIdUseCase } from "@/domain/IUseCases/enrollment";
+import { ICreateEnrollmentUseCase, IGetEnrollmentByIdUseCase, IGetInstructorsForChatUseCase, IGetProgressByIdUseCase, IGetStudentsForChatUseCase, IIsEnrollmentExistUseCase, IUpdateProgressByIdUseCase } from "@/domain/IUseCases/enrollment";
 import { ICreateReveiwUseCase, IGetReveiwsUseCase } from "@/domain/IUseCases/review";
 
 export interface IuseCases {
@@ -30,5 +30,6 @@ export interface IuseCases {
     getReviewsUseCase : ( Dependecies : IDependecies ) => IGetReveiwsUseCase
     getStudentsForChatUseCase : ( Dependecies : IDependecies ) => IGetStudentsForChatUseCase
     getInstructorsForChatUseCase : ( Dependecies : IDependecies ) => IGetInstructorsForChatUseCase
+    // isEnrollmentExistUseCase : ( Dependecies : IDependecies ) => IIsEnrollmentExistUseCase
 
 }

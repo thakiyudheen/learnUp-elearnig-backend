@@ -21,4 +21,4 @@ export const createCourse = async  (  data : CourseEntity ) : Promise < CourseEn
         throw new Error(error?.message);
 
     }
-}
+}   

@@ -1,4 +1,4 @@
-import { resetPassword } from "@/infrastructure/database/mongodb/repositories";
+import { resetPassword } from "../../../infrastructure/database/mongodb/repositories";
 
 export const resetPasswordConsumer = async (data: { email: string, password: string }) => {
 
