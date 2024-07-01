@@ -16,6 +16,8 @@ import { createReviewController } from "./review/createReviews";
 import { getReviewsController } from "./review/getReviews";
 import { getStudentForChatController } from "./enrollment/getStudentForChat";
 import { getInstructorForChatController } from "./enrollment/getInstructorForChat";
+import { isEnrollmentExistUseCase } from "@/application/useCases";
+import { isEnrollmentExistController } from "./enrollment/isEnrollementExist";
 
 
 
@@ -38,5 +40,6 @@ export const controller = ( Dependencies : IDependecies ) => {
         getReviews : getReviewsController( Dependencies ),
         getStudentsForChat : getStudentForChatController( Dependencies ),
         getInstructorsForChat : getInstructorForChatController( Dependencies ),
+        isEnrollmentExist : isEnrollmentExistController( Dependencies ),
     }
 }

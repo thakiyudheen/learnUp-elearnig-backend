@@ -7,18 +7,18 @@ interface PaginationData {
    
 }
 
-export const getAllCourse = async (data: { instructorRef?: string, isPublished?: boolean, page?: number, limit?: number }): Promise<PaginationData | null> => {
+export const getAllCourse = async (data: { instructorRef?: string, isPublished?: boolean, page?: number, limit?: number,isBlocked?:boolean }): Promise<PaginationData | null> => {
     try {
-        const { page = 1, limit = 7, ...rest } = data;
+        const { page = 1, limit = 7,  ...rest } = data;
         console.log('this is pagination', data);
         
-        const totalItems = await Course.countDocuments({...rest, isBlocked: false});
+        const totalItems = await Course.countDocuments({...rest });
         console.log('this is rest', totalItems);
         
         const pageNumber = Math.max(1, page);
         const limitNumber = Math.max(1, limit);
 
-        const courses = await Course.find({ ...rest, isBlocked: false })
+        const courses = await Course.find({ ...rest })
             .populate('category')
             .populate('instructorRef')
             .sort({ createdAt: -1 })

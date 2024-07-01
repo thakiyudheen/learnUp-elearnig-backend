@@ -27,7 +27,7 @@ export interface IRepositories {
      findCategory :( categoryName : string ) => Promise< boolean >
      getAllCategories :( data:{ page?:number , limit ?:number}) => Promise< CategoryEntity[] >
      createCourse : ( data : CourseEntity ) => Promise< CourseEntity >
-     getAllCourse : ( data: { instructorRef ?: string , isPublised?:boolean , page?:number , limit?:number}  ) => Promise< PaginationData | null >
+     getAllCourse : ( data: { instructorRef ?: string , isPublised?:boolean , page?:number , limit?:number ,isBlocked?:boolean}  ) => Promise< PaginationData | null >
      updateCourse : ( data : data ) => Promise< CourseEntity  >
      findCourseById : ( _id : string ) => Promise< CourseEntity | null>
      updateAllCourse :  ( data : any ) => Promise< CourseEntity >
@@ -39,7 +39,7 @@ export interface IRepositories {
      getReviews :  ( data:{ page?:number , limit ?:number,courseId:string} ) => Promise < {reviews: ReviewEntity[],totalItems: number;} >
      getStudentsForChat :  ( data:{ instructorId: string} ) => Promise < EnrollmentEntity[] >
      getInstructorsForChat :  ( data:{ userId: string} ) => Promise < CourseEntity[] >
-     isEnrollmentExist :  ( data:any ) => Promise < EnrollmentEntity >
+     isEnrollmentExist :  ( data:any ) => Promise < EnrollmentEntity | null >
 
 
     } 

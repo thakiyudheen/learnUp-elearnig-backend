@@ -25,6 +25,16 @@ export default async (data: userEntity ) => {
 				],
 
 			},
+			{
+				topic: "chat-service-topic",
+				messages: [
+					{
+						key: "updateUser",
+						value: JSON.stringify(data),
+					},
+				],
+
+			},
 		]
 
 

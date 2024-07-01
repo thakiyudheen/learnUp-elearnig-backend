@@ -10,11 +10,6 @@ export const getAllCourseController = ( Dependencies : IDependecies ) => {
     return async (req: Request, res: Response, next: NextFunction) => {
         try {
             
-
-            console.log('course data', req.body)
-            console.log('this is query ',req.query)
-           
-
             const course = await getAllCourseUseCase( Dependencies ).execute( req.query )
             
             if(course){

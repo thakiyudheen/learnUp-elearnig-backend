@@ -2,6 +2,8 @@ import { Router } from "express";
 import { IDependecies } from "../../application/Interfases/IDependencies";
 import { controller } from "../../presentation/controller";
 import { jwtMiddleware } from "../../_lib/common/middleware/jwtMiddleWare";
+// import {jwt}
+
 
 
 
@@ -26,7 +28,8 @@ export const routes = ( Dependencies : IDependecies ) => {
         createReview,
         getReviews,
         getStudentsForChat,
-        getInstructorsForChat
+        getInstructorsForChat,
+        isEnrollmentExist
 
     } = controller( Dependencies ) ;
 
@@ -82,7 +85,9 @@ export const routes = ( Dependencies : IDependecies ) => {
 
     // get instructor for chat ----------------------------------
     router.route('/get-instructorForChat').get( jwtMiddleware , getInstructorsForChat )
-
+    
+    // is enrollment exist  ----------------------------------
+    router.route('/is-EnrollmentExist').get( jwtMiddleware , isEnrollmentExist )
 
 
 

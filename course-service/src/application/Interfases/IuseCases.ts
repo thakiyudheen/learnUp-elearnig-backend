@@ -30,6 +30,6 @@ export interface IuseCases {
     getReviewsUseCase : ( Dependecies : IDependecies ) => IGetReveiwsUseCase
     getStudentsForChatUseCase : ( Dependecies : IDependecies ) => IGetStudentsForChatUseCase
     getInstructorsForChatUseCase : ( Dependecies : IDependecies ) => IGetInstructorsForChatUseCase
-    // isEnrollmentExistUseCase : ( Dependecies : IDependecies ) => IIsEnrollmentExistUseCase
+    isEnrollmentExistUseCase : ( Dependecies : IDependecies ) => IIsEnrollmentExistUseCase
 
 }

@@ -4,13 +4,13 @@ import { Enrollment } from "../../models/enrollmentModel";
 
 
 
-export const getEnrollmentExist = async  (  data : any ) : Promise < EnrollmentEntity > => {
+export const isEnrollmentExist = async  (  data : any ) : Promise < EnrollmentEntity|null > => {
     try {
  
         const enrollment = await Enrollment.findOne( data ) ;
         
         if( !enrollment ) {
-            throw new Error('enrollment exist check Failed ');
+            return null
         }
 
         
