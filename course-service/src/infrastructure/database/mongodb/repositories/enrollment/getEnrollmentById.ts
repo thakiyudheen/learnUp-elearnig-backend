@@ -4,7 +4,7 @@ import { Enrollment } from "../../models/enrollmentModel";
 interface EnrollmentQueryParams {
     userId?: string;
     page: number;
-    limit: number;
+    limit?: number;
     search?: string;
     categories?: string[];
     levels?: string[];
@@ -18,7 +18,8 @@ interface EnrollmentQueryParams {
 export const getEnrollmentById = async  (  data : EnrollmentQueryParams ) : Promise < EnrollmentEntity[] > => {
     try {
         console.log('this is the enrollmen ',data)
-        const skip = (data.page - 1) * data.limit;
+        const {limit=10}=data;
+        const skip = (data.page - 1) * limit;
         let query : QueryType = { userId: data.userId };
         if (data?.search?.trim().length && data?.search?.trim().length> 0) {
             query['courseId.courseTitle']   = { $regex: `.*${data.search}.*`, $options: 'i' } as any;
@@ -39,7 +40,7 @@ export const getEnrollmentById = async  (  data : EnrollmentQueryParams ) : Prom
             ]
         })
         .skip(skip)
-        .limit(data?.limit);
+        .limit(limit);
 
         
         if( !enrollment ) {

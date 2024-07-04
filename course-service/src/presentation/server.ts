@@ -5,6 +5,7 @@ import morgan from 'morgan';
 import { routes } from '../infrastructure/routes';
 import { Dependencies } from '../_boot/dependecies';
 import errorHandler from '../_lib/common/error/errorhandler';
+import { generateCertificate } from '../infrastructure/service/downloadPdf';
 
 
 

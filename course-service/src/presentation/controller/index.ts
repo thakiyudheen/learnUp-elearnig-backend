@@ -18,6 +18,14 @@ import { getStudentForChatController } from "./enrollment/getStudentForChat";
 import { getInstructorForChatController } from "./enrollment/getInstructorForChat";
 import { isEnrollmentExistUseCase } from "@/application/useCases";
 import { isEnrollmentExistController } from "./enrollment/isEnrollementExist";
+import { getMoreEnrolledCourse, updateEnrollment } from "@/infrastructure/database/mongodb/repositories";
+import { getMoreEnrolledCourseController } from "./enrollment/getMoreEnrolledCourse";
+import { createAssessmentController } from "./assessment/createAssessment";
+import { getAllAssessmentController } from "./assessment/getAllAssessments";
+import { deleteAssessmentController } from "./assessment/deleteAssessments";
+import { updateAssessmentController } from "./assessment/updateAssessment";
+import { updateEnrollmentController } from "./assessment/updateEnrollmentUseCase";
+// import { downloadCertificateController } from "./assessment/downloadPdf";
 
 
 
@@ -41,5 +49,13 @@ export const controller = ( Dependencies : IDependecies ) => {
         getStudentsForChat : getStudentForChatController( Dependencies ),
         getInstructorsForChat : getInstructorForChatController( Dependencies ),
         isEnrollmentExist : isEnrollmentExistController( Dependencies ),
+        getMoreEnrolledCourse : getMoreEnrolledCourseController( Dependencies ),
+        createAssessment : createAssessmentController( Dependencies ),
+        getAllAssessment : getAllAssessmentController( Dependencies ),
+        deleteAssessment : deleteAssessmentController( Dependencies ),
+        updateAssessment : updateAssessmentController( Dependencies ),
+        updateEnrollment : updateEnrollmentController( Dependencies ),
+       
+       
     }
 }

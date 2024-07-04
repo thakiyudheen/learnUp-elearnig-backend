@@ -3,7 +3,7 @@ import { CategoryEntity, CourseEntity, EnrollmentEntity } from "@/domain/entitie
 interface EnrollmentQueryParams {
     userId?: string;
     page: number;
-    limit: number;
+    limit?: number;
     search?: string;
     categories?: string[];
     levels?: string[];

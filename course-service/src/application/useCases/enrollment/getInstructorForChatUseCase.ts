@@ -11,7 +11,7 @@ export const getInstructorsForChatUseCase = (Dependencies : IDependecies ) => {
 
     return {
 
-        execute: async ( data : {userId:string}  ) => { 
+        execute: async ( data : {userId?:string, instructorId?:string}  ) => { 
             try {
                 console.log('this is usecase')
 

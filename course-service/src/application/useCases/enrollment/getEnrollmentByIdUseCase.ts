@@ -4,7 +4,7 @@ import { IDependecies } from "@/application/Interfases/IDependencies";
 interface EnrollmentQueryParams {
     userId?: string;
     page: number;
-    limit: number;
+    limit?: number;
     search?: string;
     categories?: string[];
     levels?: string[];

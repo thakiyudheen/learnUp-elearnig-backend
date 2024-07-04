@@ -2,7 +2,8 @@ import { Router } from "express";
 import { IDependecies } from "../../application/Interfases/IDependencies";
 import { controller } from "../../presentation/controller";
 import { jwtMiddleware } from "../../_lib/common/middleware/jwtMiddleWare";
-// import {jwt}
+
+
 
 
 
@@ -29,7 +30,14 @@ export const routes = ( Dependencies : IDependecies ) => {
         getReviews,
         getStudentsForChat,
         getInstructorsForChat,
-        isEnrollmentExist
+        isEnrollmentExist,
+        getMoreEnrolledCourse,
+        createAssessment,
+        getAllAssessment,
+        deleteAssessment,
+        updateAssessment,
+        updateEnrollment
+       
 
     } = controller( Dependencies ) ;
 
@@ -88,8 +96,26 @@ export const routes = ( Dependencies : IDependecies ) => {
     
     // is enrollment exist  ----------------------------------
     router.route('/is-EnrollmentExist').get( jwtMiddleware , isEnrollmentExist )
-
-
+    
+    // get More enrolled Course  -------------------------------
+    router.route('/getMore-enrolled').get( jwtMiddleware , getMoreEnrolledCourse )
+    
+    // create assessment  for Course  -------------------------------
+    router.route('/create-assessment').post( jwtMiddleware , createAssessment )
+    
+    // get all assessment    -------------------------------
+    router.route('/getAll-assessments').get( jwtMiddleware , getAllAssessment )
+    
+    // delete assessment    -------------------------------
+    router.route('/delete-assessments').delete( jwtMiddleware , deleteAssessment )
+    
+    // update assessment    -------------------------------
+    router.route('/update-assessments').patch( jwtMiddleware , updateAssessment )
+    
+    // update enrollment    -------------------------------
+    router.route('/updateEnrollment').patch( jwtMiddleware , updateEnrollment )
+    
+   
 
     return router
 }

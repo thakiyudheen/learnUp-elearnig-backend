@@ -18,6 +18,11 @@ const enrollmentSchema = new Schema({
         ref: "users",
         required: true,
     },
+    instructorId: {
+        type: Schema.Types.ObjectId,
+        ref: "users",
+        required: true,
+    },
     courseId: {
         type: Schema.Types.ObjectId,
         ref: "Courses",
@@ -28,6 +33,10 @@ const enrollmentSchema = new Schema({
         default: function () {
             return Date.now();
         }
+    },
+    ExamCompletion: {
+        type:Boolean,
+        default: false
     },
     completionStatus: {
         type: String,

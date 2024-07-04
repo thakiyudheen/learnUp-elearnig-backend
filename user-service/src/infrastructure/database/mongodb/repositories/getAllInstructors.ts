@@ -1,31 +1,3 @@
-// import { userEntity } from "../../../../domain/entities/UserEntity";
-// import { User } from "../models";
-
-// interface PaginationData {
-//     instructors: userEntity[];
-//     totalItems: number;
-// }
-
-// export const getAllInstructors = async  ( { data: { page?:number,limit?:number}}) : Promise < PaginationData | null > => {
-//     try {
-       
-//         const instructor = await User.find( { role : 'instructor' , isVerified : true } ) ;
-
-//         if( !instructor ) {
-
-//             throw new Error('instructor finding Error ')
-//         }
-
-//         return instructor
-
-//     } catch ( error : any ){
-
-    
-//         throw new Error(error?.message);
-
-//     }
-// }
-
 import { userEntity } from "../../../../domain/entities/UserEntity";
 import { User } from "../models";
 

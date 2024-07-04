@@ -3,12 +3,13 @@ import { Enrollment } from "../../models/enrollmentModel";
 import Course from "../../models/course";
 
 interface Params {
-    userId: string;
+    userId?: string;
+    instructorId?:string;
   }
  
   
 
-export const getInstructorsForChat = async  (  data : Params ) : Promise < CourseEntity[] > => {
+export const getInstructorsForChat = async  (  data : Params ) : Promise < EnrollmentEntity[] > => {
     try {
  
       
@@ -25,17 +26,14 @@ export const getInstructorsForChat = async  (  data : Params ) : Promise < Cours
                 model: 'categories', 
             }
             ]
-        })
-        const courseId = enrollment.map((enrollment)=> enrollment?.courseId?._id)
-
-        const course = await Course.find({_id: {$in: courseId}}).populate('instructorRef')
+        }).populate('instructorId')
         
-        if( !course ) {
+        if( !enrollment ) {
 
-            throw new Error('fetching instructor for chat  Failed ');
+            throw new Error('fetching enrollment Failed ');
         }
 
-        return course ;
+        return enrollment ;
 
     } catch ( error : any ){
 

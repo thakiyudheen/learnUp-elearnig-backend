@@ -70,6 +70,10 @@ const socketEventHandler = (socket: Socket, io: SocketIOServer, context: { onlin
         io.to(data.roomId).emit("stopTyping",{...data})
     })
 
+    // socket?.on('payment', (data) =>{
+    //     console.log('the payment is received',data)
+    // })
+
 };
 
 export type socketEventHandlerType = (socket: Socket, io: SocketIOServer, context: { onlineUsers: Map<string, string> }) => void;

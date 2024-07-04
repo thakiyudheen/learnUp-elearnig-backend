@@ -1,70 +1,70 @@
-import { Request, Response, NextFunction } from "express";
-import jwt from 'jsonwebtoken';
-import { config } from 'dotenv' ;
-import { access } from "fs";
-import { generateAccessToken } from "../../http/jwt/generateAccessToken";
+// import { Request, Response, NextFunction } from "express";
+// import jwt from 'jsonwebtoken';
+// import { config } from 'dotenv' ;
+// import { access } from "fs";
 
 
-config()
 
-interface UserPayload {
+// config()
 
-    _id: string;
-    email: string;
-    role: string;
+// interface UserPayload {
 
-}
+//     _id: string;
+//     email: string;
+//     role: string;
 
-declare global {
+// }
 
-    namespace Express {
-        interface Request {
-            user?: UserPayload;
-        }
-    }
+// declare global {
 
-}
+//     namespace Express {
+//         interface Request {
+//             user?: UserPayload;
+//         }
+//     }
 
-export const jwtMiddleware = async (req: Request, res: Response, next: NextFunction): Promise<any> => {
-        try {
-                const { access_token, refresh_token } = req.cookies;
+// }
 
-                if(!access_token&&!refresh_token){
+// export const jwtMiddleware = async (req: Request, res: Response, next: NextFunction): Promise<any> => {
+//         try {
+//                 const { access_token, refresh_token } = req.cookies;
 
-                    return next()
+//                 if(!access_token&&!refresh_token){
 
-                }
-                let user ;
+//                     return next()
 
-                if(access_token){
+//                 }
+//                 let user ;
 
-                    user = await  jwt.verify(access_token, process.env.ACCESS_TOKEN_SECRET!) as UserPayload;
+//                 if(access_token){
 
-                }
-                if(!user && refresh_token){
+//                     user = await  jwt.verify(access_token, process.env.ACCESS_TOKEN_SECRET!) as UserPayload;
 
-                    user = await jwt.verify(refresh_token, process.env.REFRESH_TOKEN_SECRET!) as UserPayload;
+//                 }
+//                 if(!user && refresh_token){
 
-                    if(user){
-                    const newAccessToken = generateAccessToken(user);
+//                     user = await jwt.verify(refresh_token, process.env.REFRESH_TOKEN_SECRET!) as UserPayload;
 
-                    //    create cookie using accestoken ------------
-                        res.cookie("access_token", newAccessToken, {
-                            httpOnly: true,
-                        });
+//                     if(user){
+//                     const newAccessToken = generateAccessTo(user);
 
-                    }
-                }
+//                     //    create cookie using accestoken ------------
+//                         res.cookie("access_token", newAccessToken, {
+//                             httpOnly: true,
+//                         });
+
+//                     }
+//                 }
                 
-                req.user = user ;
+//                 req.user = user ;
                 
-                next();
-     } catch( error : any ) {
+//                 next();
+//      } catch( error : any ) {
 
-        console.error("Error in JWT middleware:", error);
-        next(error); 
+//         console.error("Error in JWT middleware:", error);
+//         next(error); 
         
-     }
+//      }
 
    
-};
+// };

@@ -1,4 +1,5 @@
 import { CategoryEntity, CourseEntity, EnrollmentEntity, ReviewEntity } from "@/domain/entities";
+import { AssessmentEntity } from "../../infrastructure/database/mongodb/models";
 
 interface data{
      _id : string,
@@ -9,7 +10,7 @@ interface data{
  interface EnrollmentQueryParams {
      userId?: string;
      page: number;
-     limit: number;
+     limit?: number;
      search?: string;
      categories?: string[];
      levels?: string[];
@@ -38,8 +39,14 @@ export interface IRepositories {
      createReview :  ( data:ReviewEntity ) => Promise <ReviewEntity >
      getReviews :  ( data:{ page?:number , limit ?:number,courseId:string} ) => Promise < {reviews: ReviewEntity[],totalItems: number;} >
      getStudentsForChat :  ( data:{ instructorId: string} ) => Promise < EnrollmentEntity[] >
-     getInstructorsForChat :  ( data:{ userId: string} ) => Promise < CourseEntity[] >
+     getInstructorsForChat :  ( data:{ userId?: string , instructorId?:string} ) => Promise < EnrollmentEntity[] >
      isEnrollmentExist :  ( data:any ) => Promise < EnrollmentEntity | null >
+     getMoreEnrolledCourse :  (  ) => Promise < EnrollmentEntity[] >
+     createAssessment :  ( data: any ) => Promise < AssessmentEntity >
+     getAllAssessments :  ( data: any ) => Promise < AssessmentEntity[] >
+     deleteAssessment :  ( data: any ) => Promise < void >
+     updateAssessment :  ( data: any ) => Promise < AssessmentEntity >
+     updateEnrollment :  ( data: any ) => Promise < void >
 
 
     } 
