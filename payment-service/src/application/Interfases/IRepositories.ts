@@ -5,4 +5,5 @@ export interface IRepositories {
     createSession ( data : SessionEntity ): Promise < SessionEntity >
     createPayment ( data : any ) : Promise < PaymentEntity >
     getAllPayment ( data : {userId ?: string } ) : Promise < PaymentEntity[] >
+    createSubscriptionPayment ( data : any ) : Promise < PaymentEntity >
 }

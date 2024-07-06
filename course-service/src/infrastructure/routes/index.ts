@@ -36,7 +36,8 @@ export const routes = ( Dependencies : IDependecies ) => {
         getAllAssessment,
         deleteAssessment,
         updateAssessment,
-        updateEnrollment
+        updateEnrollment,
+        getMyStudent
        
 
     } = controller( Dependencies ) ;
@@ -115,6 +116,8 @@ export const routes = ( Dependencies : IDependecies ) => {
     // update enrollment    -------------------------------
     router.route('/updateEnrollment').patch( jwtMiddleware , updateEnrollment )
     
+    // get my student    -------------------------------
+    router.route('/get-myStudent').get( jwtMiddleware , getMyStudent )
    
 
     return router

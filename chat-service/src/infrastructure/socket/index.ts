@@ -1,5 +1,7 @@
 import { Server as SocketIOServer, Socket } from 'socket.io';
 import { Chat } from '../database/mongodb/models';
+import { seenMessages } from '../database/mongodb/repositories/seenMessages';
+import { createMessage } from '../database/mongodb/repositories';
 
 const socketEventHandler = (socket: Socket, io: SocketIOServer, context: { onlineUsers: Map<string, string> }) => {
     console.log('Socket connected:', socket.id);
@@ -27,15 +29,17 @@ const socketEventHandler = (socket: Socket, io: SocketIOServer, context: { onlin
     });
 
     // send and recieve message ------------------------
-    socket.on("send-message", (message: any) => {
-        console.log('message received succesfully' , message)
-         io.to(message.roomId).emit("receive-message", {
+    socket.on("send-message", async (message: any) => {
+        const messages =await  createMessage(message)
+        console.log('message received succesfully', messages)
+        io.to(message.roomId).emit("receive-message", {
             ...message,
             createdAt: new Date().toISOString(),
-          });
+        });
     });
 
-    socket.on('disconnect', async() => {
+    // disconnect soccket ---------------------------------------
+    socket.on('disconnect', async () => {
         console.log('Socket disconnected:', socket.id);
         const userId = onlineUsers.get(socket.id);
         onlineUsers.delete(socket.id);
@@ -44,13 +48,14 @@ const socketEventHandler = (socket: Socket, io: SocketIOServer, context: { onlin
         const userIds = Array.from(new Set(onlineUsers.values()));
         console.log('Updated online users on disconnect:', userIds);
 
-        // setup last see
+        // setup last seen
         const updateLastSeen = await Chat.updateMany(
             {
-                participants:userId
+                participants: userId
             }
-            ,{
-                $set:{lastSeen:new Date()
+            , {
+                $set: {
+                    lastSeen: new Date()
 
                 }
             }
@@ -60,19 +65,21 @@ const socketEventHandler = (socket: Socket, io: SocketIOServer, context: { onlin
     });
 
     // is typing ----------------------------------
-    socket?.on("isTyping",(data : any) =>{
-        io.to(data.roomId).emit("isTyping",{...data})
-    })
-    
-    // stop typing ----------------------------------
-    socket?.on("stopTyping",(data : any) =>{
-        console.log('stop has working',data)
-        io.to(data.roomId).emit("stopTyping",{...data})
+    socket?.on("isTyping", (data: any) => {
+        io.to(data.roomId).emit("isTyping", { ...data })
     })
 
-    // socket?.on('payment', (data) =>{
-    //     console.log('the payment is received',data)
-    // })
+    // stop typing ----------------------------------
+    socket?.on("stopTyping", (data: any) => {
+        console.log('stop has working', data)
+        io.to(data.roomId).emit("stopTyping", { ...data })
+    })
+
+    // seen message ---------------------------------
+    socket?.on("seen-message", async (data: any) => {
+        console.log('seen message working', data)
+        await seenMessages(data)
+    })
 
 };
 

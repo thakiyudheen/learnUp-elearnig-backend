@@ -12,7 +12,7 @@ interface Params {
 export const getInstructorsForChat = async  (  data : Params ) : Promise < EnrollmentEntity[] > => {
     try {
  
-      
+      console.log('the reached data',data)
         const enrollment = await Enrollment.find(data)
         .populate({
             path: 'courseId',
@@ -27,6 +27,8 @@ export const getInstructorsForChat = async  (  data : Params ) : Promise < Enrol
             }
             ]
         }).populate('instructorId')
+
+        console.log('this is enrollment',enrollment)
         
         if( !enrollment ) {
 

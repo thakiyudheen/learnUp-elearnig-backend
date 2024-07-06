@@ -18,6 +18,7 @@ export interface EnrollmentEntity {
     enrolledAt?: Date | string;
     completionStatus?: CompleationStatus;
     ExamCompletion?:boolean;
+    instructorId?:string;
     progress?: {
         completedLessons?: Types.ObjectId[] | [] | null;
         completedAssessments?: Types.ObjectId[] | [] | null;

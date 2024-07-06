@@ -9,7 +9,7 @@ const paymentSchema = new Schema(
 		},
 		courseId: {
 			type: Schema.Types.ObjectId,
-			required: true,
+			
 		},
 		method: {
 			type: String,
@@ -24,6 +24,11 @@ const paymentSchema = new Schema(
 			type: Number,
 			required: true,
 		},
+		subscriptionType: {
+			type: String,
+			
+		},
+		
 	},
 	{
 		timestamps: true,

@@ -6,9 +6,9 @@ import Stripe from "stripe";
 
 
 
-export const createPaymentController = ( Dependencies : IDependecies ) => {
+export const createSubScriptionPaymentController = ( Dependencies : IDependecies ) => {
    
-    const { useCases : { createPaymentUsecase } } = Dependencies
+    const { useCases : { createSubscriptionPaymentUseCase} } = Dependencies
     
     return async (req: Request, res: Response, next: NextFunction) => {
         try {
@@ -18,19 +18,18 @@ export const createPaymentController = ( Dependencies : IDependecies ) => {
             console.log('payment  data', req.body)
            
           
-            const result = await createPaymentUsecase( Dependencies ).execute( req.body )
+            const result = await createSubscriptionPaymentUseCase( Dependencies ).execute( req.body )
 
 
 
             const data = {
                 userId : result.userId ,
-                instructorId ,
-                courseId : result.courseId,
+                subscriptionType : result.subscriptionType ,
                 amount : result.amount ,
             }
 
-            await createEnrollmentProducer( data )
-            await coursePurcahseSuccessProducer(data)
+            // await createEnrollmentProducer( data )
+            // await coursePurcahseSuccessProducer(data)
 
 
        

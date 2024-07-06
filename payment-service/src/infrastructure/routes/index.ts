@@ -8,7 +8,7 @@ import { controller } from "../../presentation/controller";
 
 export const routes = ( Dependencies : IDependecies ) => {
     const {} = Dependencies 
-    const { createSession , createPayment , getAllPayment} = controller( Dependencies ) ;
+    const { createSession , createPayment , getAllPayment ,createSubscriptionPayment} = controller( Dependencies ) ;
 
     const router = Router()
     
@@ -17,6 +17,9 @@ export const routes = ( Dependencies : IDependecies ) => {
     
     //  create payment ----------------------
     router.route('/create-payment').post( createPayment )
+    
+    //  create Subscrition payment ----------------------
+    router.route('/create-subscriptionPayment').post( createSubscriptionPayment  )
     
     //  get all payment ----------------------
     router.route('/getAll-payment').get( getAllPayment )

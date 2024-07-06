@@ -9,7 +9,7 @@ import { IDependecies } from "./IDependencies";
 import { IGetAllCourseUseCase, IUpdateAllCourseUseCase } from "@/domain/IUseCases/course";
 import { IUpdateCourseUseCase } from "@/domain/IUseCases/course/IUpdateCourseUseCase";
 import { IFindCourseByIdUseCase } from "@/domain/IUseCases/course/IFindCourseByIdUseCase";
-import { ICreateEnrollmentUseCase, IGetEnrollmentByIdUseCase, IGetInstructorsForChatUseCase, IGetProgressByIdUseCase, IGetStudentsForChatUseCase, IIsEnrollmentExistUseCase, IUpdateEnrollmentUseCase, IUpdateProgressByIdUseCase } from "@/domain/IUseCases/enrollment";
+import { ICreateEnrollmentUseCase, IGetEnrollmentByIdUseCase, IGetInstructorsForChatUseCase, IGetMyStudentUseCase, IGetProgressByIdUseCase, IGetStudentsForChatUseCase, IIsEnrollmentExistUseCase, IUpdateEnrollmentUseCase, IUpdateProgressByIdUseCase } from "@/domain/IUseCases/enrollment";
 import { ICreateReveiwUseCase, IGetReveiwsUseCase } from "@/domain/IUseCases/review";
 import { IGetMoreEnrolledCourseUseCase} from "@/domain/IUseCases/enrollment/IGetMoreEntrolledCoursesUseCase";
 import { ICreateAssessmentUseCase, IDeleteAssessmentUseCase, IGetAllAssessmentUseCase, IUpdateAssessmentUseCase } from "@/domain/IUseCases/assessment";
@@ -39,5 +39,6 @@ export interface IuseCases {
     deleteAssessmentUseCase: ( Dependecies : IDependecies ) => IDeleteAssessmentUseCase
     updateAssessmentUseCase: ( Dependecies : IDependecies ) => IUpdateAssessmentUseCase
     updateEnrollmenteUseCase: ( Dependecies : IDependecies ) => IUpdateEnrollmentUseCase
+    getMyStudentUseCase: ( Dependecies : IDependecies ) => IGetMyStudentUseCase
 
 }

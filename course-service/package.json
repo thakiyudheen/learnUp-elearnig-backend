@@ -19,6 +19,7 @@
     "@types/mongoose": "^5.11.97",
     "@types/morgan": "^1.9.9",
     "@types/pdfkit": "^0.13.4",
+    "cloudinary": "^2.2.0",
     "concurrently": "^8.2.2",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",

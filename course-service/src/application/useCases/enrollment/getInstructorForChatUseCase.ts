@@ -13,7 +13,7 @@ export const getInstructorsForChatUseCase = (Dependencies : IDependecies ) => {
 
         execute: async ( data : {userId?:string, instructorId?:string}  ) => { 
             try {
-                console.log('this is usecase')
+                console.log('this is instp',data)
 
                 return await getInstructorsForChat( data )
 

@@ -25,6 +25,7 @@ import { getAllAssessmentController } from "./assessment/getAllAssessments";
 import { deleteAssessmentController } from "./assessment/deleteAssessments";
 import { updateAssessmentController } from "./assessment/updateAssessment";
 import { updateEnrollmentController } from "./assessment/updateEnrollmentUseCase";
+import { getMyStudentController } from "./enrollment/getMyStudents";
 // import { downloadCertificateController } from "./assessment/downloadPdf";
 
 
@@ -55,7 +56,8 @@ export const controller = ( Dependencies : IDependecies ) => {
         deleteAssessment : deleteAssessmentController( Dependencies ),
         updateAssessment : updateAssessmentController( Dependencies ),
         updateEnrollment : updateEnrollmentController( Dependencies ),
-       
+        getMyStudent : getMyStudentController( Dependencies ),
+        
        
     }
 }

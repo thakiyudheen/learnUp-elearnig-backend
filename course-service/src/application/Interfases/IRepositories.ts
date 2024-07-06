@@ -15,12 +15,19 @@ interface data{
      categories?: string[];
      levels?: string[];
      sort?: 'asc' | 'desc';
+     instructorId ?:string;
    }
    interface PaginationData {
     courses: CourseEntity[];
     totalItems: number;
    
 }
+interface Params {
+    userId?: string;
+    instructorId?: string;
+    page?: number;
+    limit?: number;
+  }
 
 export interface IRepositories {
      createCategory :( categoryName : string ) => Promise<CategoryEntity >
@@ -47,6 +54,7 @@ export interface IRepositories {
      deleteAssessment :  ( data: any ) => Promise < void >
      updateAssessment :  ( data: any ) => Promise < AssessmentEntity >
      updateEnrollment :  ( data: any ) => Promise < void >
+     getMyStudents :  ( data:Params ) => Promise < { students: EnrollmentEntity[], totalItems: number } >
 
 
     } 

@@ -9,6 +9,7 @@ interface EnrollmentQueryParams {
     categories?: string[];
     levels?: string[];
     sort?: 'asc' | 'desc';
+    instructorId ?:string;
   }
 
 

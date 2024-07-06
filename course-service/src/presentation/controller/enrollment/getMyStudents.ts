@@ -7,32 +7,28 @@ interface QueryParams {
 
   }
 
-export const getInstructorForChatController = ( Dependencies : IDependecies ) => {
+export const getMyStudentController = ( Dependencies : IDependecies ) => {
    
-    const { useCases : { getInstructorsForChatUseCase } } = Dependencies
+    const { useCases : { getMyStudentUseCase } } = Dependencies
     
     return async (req: Request, res: Response, next: NextFunction) => {
         try {
             
-
-            const course = await getInstructorsForChatUseCase( Dependencies ).execute( req.query )
+            const myStudent = await getMyStudentUseCase( Dependencies ).execute( req.query )
             
-            if(!course){
+            if(!myStudent){
 
-                throw new Error('Error while fetching instructor for chat')
+                throw new Error('Error while fetching my student ')
                
             }
 
             return  res.status(200).json( { 
 
                 success: true,
-                data: course,
-                message: "Instructor for chat fetched Successfully", 
+                data: myStudent,
+                message: "My student fetched Successfully", 
 
-            } )
-        
-
-            
+            } )   
 
         } catch ( error : any ) {
            

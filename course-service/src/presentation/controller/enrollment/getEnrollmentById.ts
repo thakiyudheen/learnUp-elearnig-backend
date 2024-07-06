@@ -10,6 +10,7 @@ interface EnrollmentQueryParams {
     categories?: string[];
     levels?: string[];
     sort?: 'asc' | 'desc';
+    instructorId?:string;
   }
 
 export const getEnrollmentByIdController = ( Dependencies : IDependecies ) => {
@@ -28,6 +29,7 @@ export const getEnrollmentByIdController = ( Dependencies : IDependecies ) => {
                 search: req.query.search as string,
                 categories: req.query.categories as string[],
                 levels: req.query.levels as string[],
+                instructorId : req.query.instructorId as string,
                 sort: req.query.sort as 'asc' | 'desc'
               };
            

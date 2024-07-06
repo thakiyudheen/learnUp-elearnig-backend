@@ -8,6 +8,7 @@ interface EnrollmentQueryParams {
     categories?: string[];
     levels?: string[];
     sort?: 'asc' | 'desc';
+    instructorId ?:string;
   }
 export interface IGetEnrollmentByIdUseCase {
     execute ( data : EnrollmentQueryParams ) : Promise< EnrollmentEntity[] >
