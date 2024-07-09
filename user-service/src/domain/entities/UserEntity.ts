@@ -36,14 +36,14 @@ interface contact {
 
 export interface userEntity  {
     _id : ObjectId,
-    firstName : string ;
-    lastName : string ;
-    username : string | null | undefined;
-    email : string ;
+    firstName ?: string ;
+    lastName ?: string ;
+    username ?: string | null | undefined;
+    email ?: string ;
     password ?: string ;
     qualification?:string;
-    address:string;
-    role : Role ;
+    address ?:string;
+    role ?: Role ;
     contact ?: contact ;
     isBlocked ?: boolean ;
     isVerified ?: boolean ;

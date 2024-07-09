@@ -8,6 +8,7 @@ export interface ChatEntity {
     lastSeen?:Date;
     groupName?: string | null;
     groupDescription?: string | null;
+    subscriptionType ?:string 
     createdAt?: Date | string;
     updatedAt?: Date | string;
 }

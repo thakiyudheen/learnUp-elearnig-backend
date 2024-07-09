@@ -24,6 +24,10 @@ const chatSchema = new Schema({
     },
     groupDescription: {
         type: String
+    },
+    subscriptionType: {
+        type: String,
+        default:'none'
     }
 }, {
     timestamps: true

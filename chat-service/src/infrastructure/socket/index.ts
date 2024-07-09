@@ -81,6 +81,13 @@ const socketEventHandler = (socket: Socket, io: SocketIOServer, context: { onlin
         await seenMessages(data)
     })
 
+
+
+    // socket using for connect peer js ---------------
+    socket.on('connectPeers',(data : any)=>{
+        console.log('this is is the id form there',data)
+    })
+
 };
 
 export type socketEventHandlerType = (socket: Socket, io: SocketIOServer, context: { onlineUsers: Map<string, string> }) => void;

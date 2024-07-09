@@ -6,13 +6,12 @@ import { routes } from '../infrastructure/routes';
 import { Dependencies } from '../_boot/dependecies';
 import http, { createServer } from 'http';
 import socket from '../_boot/socket';
-import socketEventHandler from '../infrastructure/socket';
 
 
 
 config()
 const app: Application = express();
-const PORT: number = Number(process.env.PORT) || 3001;
+const PORT: number = Number(process.env.PORT) || 3007;
 
 // using middlewares ----------------------------------
 
@@ -37,6 +36,7 @@ console.log('this is calling');
 socket(Server)
 console.log('this is calling');
 
+
 app.use('/',routes( Dependencies ))
 
 //  not fount Error --------------------------------------
@@ -44,6 +44,8 @@ app.use('/',routes( Dependencies ))
 app.all("*", (req: Request, res: Response) => {
     res.status(404).json({ success: false, status: 404, message: "API Not found" });
 });
+
+
 
 
 // start server -------------------------------------------
