@@ -8,7 +8,7 @@ interface PaginationData {
     
 }
 
-export const getAllStudents = async  (data:{page:number,limit:number} ) : Promise < PaginationData | null > => {
+export const getAllStudents = async  (data:{page?:number,limit?:number} ) : Promise < PaginationData | null > => {
     try {
        
         const { page = 1, limit = 10 } = data;

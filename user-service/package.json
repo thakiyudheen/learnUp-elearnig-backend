@@ -26,12 +26,13 @@
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "jsonwebtoken": "^9.0.2",
-    "jwt-middleware-learnup": "^1.0.0",
+    "jwt-middleware-learnup": "^1.1.0",
     "kafkajs": "^2.2.4",
     "mongoose": "^8.4.1",
     "morgan": "^1.10.0",
     "nodemailer": "^6.9.13",
-    "nodemon": "^3.1.2"
+    "nodemon": "^3.1.2",
+    "role-middleware": "^1.0.1"
   },
   "devDependencies": {
     "@types/cors": "^2.8.17",

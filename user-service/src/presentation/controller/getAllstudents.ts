@@ -11,7 +11,9 @@ export const getAllStudentsController = ( Dependencies : IDependecies ) => {
         try {
             console.log('here reached------------------------------',req.query)
             
-
+        //     if(!req.user){
+        //         throw new Error("no jwt is not working")
+        //    }
             const  students = await getAllStudentUseCase( Dependencies ).execute( req.query )
 
             if( !students ){

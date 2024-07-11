@@ -24,7 +24,7 @@ export const jwtMiddleware = async (req: Request, res: Response, next: NextFunct
     try {
         const { access_token, refresh_token } = req.cookies;
         console.log("Access token:", access_token);
-        console.log("Refresh token:", refresh_token);
+        console.log("Refresh token new:", refresh_token);
 
         if (!access_token && !refresh_token) {
             return next();

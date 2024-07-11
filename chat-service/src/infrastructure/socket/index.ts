@@ -30,7 +30,7 @@ const socketEventHandler = (socket: Socket, io: SocketIOServer, context: { onlin
 
     // send and recieve message ------------------------
     socket.on("send-message", async (message: any) => {
-        const messages =await  createMessage(message)
+        const messages = await createMessage(message)
         console.log('message received succesfully', messages)
         io.to(message.roomId).emit("receive-message", {
             ...message,
@@ -84,9 +84,25 @@ const socketEventHandler = (socket: Socket, io: SocketIOServer, context: { onlin
 
 
     // socket using for connect peer js ---------------
-    socket.on('connectPeers',(data : any)=>{
-        console.log('this is is the id form there',data)
-    })
+    socket.on('outGoingCall', (data: { roomId: string, peerId: string }) => {
+        console.log('This is the id from there:', data);
+        // socket.join(data.roomId);
+        socket.to(data.roomId).emit('incomingCall', data);
+    });
+
+    // answer call -------------------------------------
+    socket.on('answerCall', (data: { roomId: string, peerId: string }) => {
+        console.log('This is the id from there:', data);
+        socket.join(data.roomId);
+        io.to(data.roomId).emit('answerCall', data);
+    });
+    
+    // reject call -------------------------------------
+    socket.on('rejectCall', (data: { roomId: string, peerId: string }) => {
+        console.log('This is  ther reject:', data);
+        socket.join(data.roomId);
+        io.to(data.roomId).emit('rejectCall', data);
+    });
 
 };
 
