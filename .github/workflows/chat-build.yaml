@@ -2,7 +2,7 @@ name: Build and publish auth service to Docker Hub
 
 on:
   push:
-    branches: ['main']
+    branches: ['master']
     paths:
       - "chat-service/**"
   workflow_dispatch:
@@ -27,7 +27,7 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v4
         with:
-          context:  ./auth-service/
+          context:  ./chat-service/
           platforms: linux/amd64,linux/arm64
           push: true
           tags: thakiyudheen/learnup-chat:latest

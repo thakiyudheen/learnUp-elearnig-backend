@@ -2,7 +2,7 @@ name: Build and publish auth service to Docker Hub
 
 on:
   push:
-    branches: ['main']
+    branches: ['master']
     paths:
       - "payment-service/**"
   workflow_dispatch:
@@ -27,7 +27,7 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v4
         with:
-          context:  ./auth-service/
+          context:  ./payment-service/
           platforms: linux/amd64,linux/arm64
           push: true
           tags: thakiyudheen/learnup-payment:latest
