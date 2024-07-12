@@ -17,3 +17,5 @@ export const generateAccessToken = (
         { expiresIn: '1m' }
     );
 };
+
+// sc 

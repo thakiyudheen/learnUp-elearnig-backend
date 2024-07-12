@@ -2,8 +2,7 @@ import { Dependencies } from "../../_boot/dependecies";
 import { IDependecies } from "../../application/Interfases/IDependencies";
 import { NextFunction, Request, Response } from "express";
 
-
-// sda
+// sc 
 
 export const createPaymentUsecase = (Dependencies : IDependecies ) => {
 

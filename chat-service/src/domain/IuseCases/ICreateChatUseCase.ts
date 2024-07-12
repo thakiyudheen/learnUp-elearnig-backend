@@ -5,3 +5,4 @@ export interface ICreateChatUseCase {
 
     execute (data: ChatEntity) : Promise <  ChatEntity >
 }
+// sc 

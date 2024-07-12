@@ -14,7 +14,7 @@ const errorHandler = (
       message: err.message,
     });
   }
-
+// sc 
 
   return res.status(400).json({
     success: false,
