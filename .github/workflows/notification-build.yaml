@@ -1,4 +1,4 @@
-name: Build and publish auth service to Docker Hub
+name: Build and publish notification service to Docker Hub
 
 on:
   push:
@@ -30,7 +30,7 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v4
         with:
-          context:  ./notification-vice/
+          context:  ./notification-service/
           platforms: linux/amd64,linux/arm64
           push: true
           tags: thakiyudheen/learnup-notification:latest
