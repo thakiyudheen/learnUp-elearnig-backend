@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { IDependecies } from "../../application/Interfases/IDependencies";
 import { controller } from "../../presentation/controller";
-import { jwtMiddleware } from "../../_lib/common/middleWares/jwtMimiddleWare";
+import { jwtMiddleware } from "jwt-middleware-learnup";
 
 
 

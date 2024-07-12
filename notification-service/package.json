@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon /src/index.ts",
     "start": "nodemon dist/index.js",
-    "build": "tsc",
+    "build": "tsc ",
     "start:dev": " concurrently --kill-others-on-fail \"npm run build\" \"npm run start\""
   },
   "keywords": [],
@@ -26,6 +26,7 @@
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "jsonwebtoken": "^9.0.2",
+    "jwt-middleware-learnup": "^1.1.0",
     "kafkajs": "^2.2.4",
     "mongoose": "^8.4.0",
     "morgan": "^1.10.0",
