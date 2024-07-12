@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: auth-config
+  labels:
+    app: learnup-auth-service
+data:
+  PORT: "3001"
+  SERVICE: "Auth Service"
+  MONGO_URI: "mongodb+srv://thakeyudheen525:Zeafo8bpDdPTtiNG@cluster0.re33o00.mongodb.net/"
+  ACCESS_TOKEN_SECRET: "password"
+  REFRESH_TOKEN_SECRET: "thisispassword"
+  GOOGLE_CLIENT_ID: "859424619330-fd4tm6rtd4rv4df6rijfqp4it5ham81a.apps.googleusercontent.com"
+  FORGOT_PASSWORD_SECRET: "thisisthe"

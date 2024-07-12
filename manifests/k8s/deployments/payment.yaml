@@ -1,0 +1,33 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: learnup-payment-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: learnup-payment-service
+  template:
+    metadata:
+      labels:
+        app: learnup-payment-service
+    spec:
+      containers:
+      - image: thakiyudheen/learnup-payment:latest
+        name: learnup-payment-service
+        envFrom:
+          - configMapRef:
+              name: payment-config
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: learnup-payment-service
+spec:
+  selector:
+    app: learnup-payment-service
+  ports:
+  - protocol: TCP
+    port: 3005
+    targetPort: 3005

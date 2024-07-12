@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: course-config
+  labels:
+    app: learnup-course-service
+data:
+  PORT: "3004"
+  SERVICE: "Course Service"
+  MONGO_URI: "mongodb+srv://thakeyudheen525:7uaOtfvwixOZRkxo@cluster0.rltve7g.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+  pass: "7uaOtfvwixOZRkxo"
+  ACCESS_TOKEN_SECRET: "password"
+  REFRESH_TOKEN_SECRET: "thisispassword"
+  CLOUDINARY_CLOUD_NAME: "dy8yhxc6a"
+  CLOUDINARY_API_KEY: "CLOUDINARY_API_KEY"
+  CLOUDINARY_API_SECRET: "QySRx9FVd1W7mYylUfXp-UHGr8k"
+

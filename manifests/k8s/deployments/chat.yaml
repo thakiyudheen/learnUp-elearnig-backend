@@ -1,0 +1,33 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: learnup-chat-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: learnup-chat-service
+  template:
+    metadata:
+      labels:
+        app: learnup-chat-service
+    spec:
+      containers:
+      - image: thakiyudheen/learnup-chat:latest
+        name: learnup-chat-service
+        envFrom:
+          - configMapRef:
+              name: chat-config
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: learnup-chat-service
+spec:
+  selector:
+    app: learnup-chat-service
+  ports:
+  - protocol: TCP
+    port: 3006
+    targetPort: 3006

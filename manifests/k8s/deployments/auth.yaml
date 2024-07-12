@@ -1,0 +1,33 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: learnup-auth-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: learnup-auth-service
+  template:
+    metadata:
+      labels:
+        app: learnup-auth-service
+    spec:
+      containers:
+      - image: thakiyudheen/learnup-auth:latest
+        name: learnup-auth-service
+        envFrom:
+          - configMapRef:
+              name: auth-config
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: learnup-auth-service
+spec:
+  selector:
+    app: learnup-auth-service
+  ports:
+  - protocol: TCP
+    port: 3001
+    targetPort: 3001

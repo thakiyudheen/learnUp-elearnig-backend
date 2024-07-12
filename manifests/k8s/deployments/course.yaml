@@ -1,0 +1,33 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: learnup-course-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: learnup-course-service
+  template:
+    metadata:
+      labels:
+        app: learnup-course-service
+    spec:
+      containers:
+      - image: thakiyudheen/learnup-course:latest
+        name: learnup-course-service
+        envFrom:
+          - configMapRef:
+              name: course-config
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: learnup-course-service
+spec:
+  selector:
+    app: learnup-course-service
+  ports:
+  - protocol: TCP
+    port: 3004
+    targetPort: 3004

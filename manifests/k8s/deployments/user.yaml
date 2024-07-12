@@ -1,0 +1,33 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: learnup-user-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: learnup-user-service
+  template:
+    metadata:
+      labels:
+        app: learnup-user-service
+    spec:
+      containers:
+      - image: thakiyudheen/learnup-user:latest
+        name: learnup-user-service
+        envFrom:
+          - configMapRef:
+              name: user-config
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: learnup-user-service
+spec:
+  selector:
+    app: learnup-user-service
+  ports:
+  - protocol: TCP
+    port: 3003
+    targetPort: 3003

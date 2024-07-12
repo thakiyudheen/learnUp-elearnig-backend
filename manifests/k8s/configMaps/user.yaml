@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: user-config
+  labels:
+    app: learnup-user-service
+data:
+  PORT: "3003"
+  SERVICE: "user Service"
+  SENDGRID_API_KEY: "thisissample"
+  SEND_GRID_EMAIL: "thakeyudheen525@gmail.com"
+  MONGO_URI: "mongodb+srv://thakeyudheen525:PlqMT2OVkqh911AL@cluster0.ff386ta.mongodb.net/"
+  EMAIL_: "thakeyudheen525@gmail.com"
+  PASSWORD_: "rkyj uxgv ywny riej"
+  ACCESS_TOKEN_SECRET: "password"
+  REFRESH_TOKEN_SECRET: "thisispassword"
