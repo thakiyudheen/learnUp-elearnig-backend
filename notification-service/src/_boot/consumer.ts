@@ -1,6 +1,6 @@
 import { consumer } from "../infrastructure/kafka"
 import { INotificationSubscriber, createSubscriber } from "../infrastructure/kafka/subscriber";
-
+// sda
 
 export const startConsumer = async () => {
     try {

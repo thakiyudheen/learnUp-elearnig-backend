@@ -7,3 +7,4 @@ export interface IDependecies {
       repositories:IRepositories
       
 }
+// sda
