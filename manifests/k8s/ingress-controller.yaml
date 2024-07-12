@@ -1,13 +1,74 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-   name: ingress-controller
+  name: ingress-controller
   annotations:
     nginx.ingress.kubernetes.io/use-regex: "true"
     cert-manager.io/cluster-issuer: letsencrypt-prod
     nginx.ingress.kubernetes.io/enable-cors: "true"
-    # nginx.ingress.kubernetes.io/cors-allow-origin: "https://my-docctor.vercel.app/"
+    nginx.ingress.kubernetes.io/cors-allow-origin: "*"
 spec:
+  ingressClassName: webapprouting.kubernetes.azure.com
+  rules:
+   - http:
+      paths:
+        - path: /chat
+          pathType: Prefix
+          backend:
+            service:
+              name: learnup-chat-service
+              port:
+                number: 3006
+        - path: /socket.io
+          pathType: Prefix
+          backend:
+            service:
+              name: learnup-chat-service
+              port:
+                number: 3006
+        - path: /auth
+          pathType: Prefix
+          backend:
+            service:
+              name: learnup-auth-service
+              port:
+                number: 3001
+        - path: /user
+          pathType: Prefix
+          backend:
+            service:
+              name: learnup-user-service
+              port:
+                number: 3003
+        - path: /notification
+          pathType: Prefix
+          backend:
+            service:
+              name: learnup-notification-service
+              port:
+                number: 3002
+        - path: /course
+          pathType: Prefix
+          backend:
+            service:
+              name: learnup-course-service
+              port:
+                number: 3004
+        - path: /payment
+          pathType: Prefix
+          backend:
+            service:
+              name: learnup-payment-service
+              port:
+                number: 3005
+        - path: /*
+          pathType: Prefix
+          backend:
+            service:
+              name: learnup-frontend-service
+              port:
+                number: 5173
+
   ingressClassName: webapprouting.kubernetes.azure.com
   rules:
    - http:
@@ -16,7 +77,7 @@ spec:
           pathType: Prefix
           backend:
             service:
-              name: learnup-client
+              name: learnup-frontend-service
               port:
                 number: 5173
         - path: /chat

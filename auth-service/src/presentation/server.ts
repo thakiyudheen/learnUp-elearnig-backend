@@ -33,7 +33,7 @@ app.get('/', (req: Request, res: Response) => {
 });
 
 
-app.use('/', routes( Dependencies ))
+app.use('/auth', routes( Dependencies ))
 
 //  not fount Error --------------------------------------
 
