@@ -6,3 +6,4 @@ export interface IOtp extends Document {
     otp: String;
     createdOn: Date;
   }
+  // /

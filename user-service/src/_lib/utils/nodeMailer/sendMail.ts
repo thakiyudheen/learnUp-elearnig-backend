@@ -2,6 +2,7 @@ import nodemailer from 'nodemailer';
 import {config} from 'dotenv';
 
 config();
+// dsf 
 
 export const sendEmail = async (recipientEmail: string, OTP: string): Promise<void> => {
     // Create a nodemailer transporter

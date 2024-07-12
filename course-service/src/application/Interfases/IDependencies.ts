@@ -6,3 +6,4 @@ export interface IDependecies {
       useCases:IuseCases,
       repositories:IRepositories     
 }
+// xcz
