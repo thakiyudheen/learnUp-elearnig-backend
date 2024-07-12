@@ -21,12 +21,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(morgan('dev'));
-
+app.set("trust proxy", true);
 // end -------------------------------------------------
 
 // route setup -----------------------------------------
 
-app.get('/', (req: Request, res: Response) => {
+app.get('/', (req: Request, res: Response,next) => {
     res.status(200).json({
         message: "Auth service ON!"
     });
