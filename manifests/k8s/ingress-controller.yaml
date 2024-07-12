@@ -6,7 +6,7 @@ metadata:
     nginx.ingress.kubernetes.io/use-regex: "true"
     cert-manager.io/cluster-issuer: letsencrypt-prod
     nginx.ingress.kubernetes.io/enable-cors: "true"
-    nginx.ingress.kubernetes.io/cors-allow-origin: "*"
+    nginx.ingress.kubernetes.io/cors-allow-origin: "https://learn-up-elearning-frontend.vercel.app"
 spec:
   ingressClassName: webapprouting.kubernetes.azure.com
   rules:
@@ -61,12 +61,12 @@ spec:
               name: learnup-payment-service
               port:
                 number: 3005
-        - path: /*
-          pathType: Prefix
-          backend:
-            service:
-              name: learnup-frontend-service
-              port:
-                number: 5173
+        # - path: /*
+        #   pathType: Prefix
+        #   backend:
+        #     service:
+        #       name: learnup-frontend-service
+        #       port:
+        #         number: 5173
 
  
