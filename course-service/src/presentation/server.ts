@@ -6,7 +6,7 @@ import { routes } from '../infrastructure/routes';
 import { Dependencies } from '../_boot/dependecies';
 import errorHandler from '../_lib/common/error/errorhandler';
 import { generateCertificate } from '../infrastructure/service/downloadPdf';
-
+import  cors  from 'cors';
 
 
 config()
@@ -22,7 +22,17 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(morgan('dev'));
 
-// end -------------------------------------------------
+
+// cors setup ------------------------------------------
+const corsOptions = {
+    origin: 'https://learn-up-elearning-frontend-git-main-thakiyudheens-projects.vercel.app',
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
+    allowedHeaders: ['DNT', 'User-Agent', 'X-Requested-With', 'If-Modified-Since', 'Cache-Control', 'Content-Type', 'Range'],
+    credentials: true,
+    exposedHeaders: ['Content-Length', 'Content-Range']
+  };
+  
+  app.use(cors(corsOptions));
 
 // route setup -----------------------------------------
 
