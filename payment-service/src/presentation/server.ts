@@ -34,14 +34,14 @@ const corsOptions = {
 
 // route setup -----------------------------------------
 
-app.get('/', (req: Request, res: Response) => {
+app.get('/api/payment/test', (req: Request, res: Response) => {
     res.status(200).json({
         message: "payment service ON!"
     });
 });
 
 
-app.use('/',routes( Dependencies ))
+app.use('/api/payment',routes( Dependencies ))
 
 //  not fount Error --------------------------------------
 

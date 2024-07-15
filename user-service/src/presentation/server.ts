@@ -35,14 +35,14 @@ const corsOptions = {
 
 // route setup -----------------------------------------
 
-app.get('/', (req: Request, res: Response) => {
+app.get('/api/user/test', (req: Request, res: Response) => {
     res.status(200).json({
         message: " user service is ON!"
     });
 });
 
 
-app.use('/',routes( Dependencies ))
+app.use('/api/user',routes( Dependencies ))
 
 //  not fount Error --------------------------------------
 
