@@ -25,9 +25,7 @@ app.use(morgan('dev'));
 const corsOptions = {
     origin: 'https://learn-up-elearning-frontend-git-main-thakiyudheens-projects.vercel.app',
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
-    allowedHeaders: ['DNT', 'User-Agent', 'X-Requested-With', 'If-Modified-Since', 'Cache-Control', 'Content-Type', 'Range'],
     credentials: true,
-    exposedHeaders: ['Content-Length', 'Content-Range']
   };
   
   app.use(cors(corsOptions));
@@ -36,7 +34,7 @@ const corsOptions = {
 
 app.get('/', (req: Request, res: Response) => {
     res.status(200).json({
-        message: "Auth service ON!"
+        message: "chat service ON!"
     });
 });
 

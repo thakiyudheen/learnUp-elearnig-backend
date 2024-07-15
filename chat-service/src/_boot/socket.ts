@@ -8,7 +8,8 @@ export default async (server: Server,) => {
     const io: SocketIOServer = new SocketIOServer(server, {
         cors: {
             origin: process.env.FRONTEND_URL,
-            methods: ["GET", "POST"]
+            methods: ["GET", "POST"],
+            credentials: true
 
         }})
     io.on("connection", (socket: Socket) => {
