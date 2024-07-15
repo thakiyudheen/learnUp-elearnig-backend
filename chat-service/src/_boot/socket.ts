@@ -14,6 +14,8 @@ export default async (server: Server,) => {
         }})
     io.on("connection", (socket: Socket) => {
 
+        const userId = socket.handshake.query.userId
+
         console.log('socket io connected');
        
         socketEventHandler(socket, io, { onlineUsers })
