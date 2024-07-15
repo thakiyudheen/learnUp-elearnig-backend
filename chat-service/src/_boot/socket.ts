@@ -7,8 +7,7 @@ export default async (server: Server,) => {
     const onlineUsers = new Map();
     const io: SocketIOServer = new SocketIOServer(server, {
         cors: {
-            origin: process.env.FRONTEND_URL,
-            methods: ["GET", "POST"],
+            origin: process.env.FRONTEND_URL||'*',
             credentials: true
 
         }})
