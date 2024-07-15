@@ -7,6 +7,7 @@ export const generateRefreshToken = (
         role: string
     }
 ) => {
+    console.log('refresh token working here ')
     return jwt.sign(
         payload,
         String(process.env.REFRESH_TOKEN_SECRET),

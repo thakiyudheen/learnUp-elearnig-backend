@@ -7,7 +7,7 @@ export const generateAccessToken = (
         role: string
     }
 ) => {
-    
+    console.log('access token working')
     const { _id, email, role } = payload;
     const newPayload = { _id, email, role };
 
