@@ -45,7 +45,7 @@ socket(Server)
 console.log('this is calling');
 
 
-app.use('/',routes( Dependencies ))
+app.use('/api/chat',routes( Dependencies ))
 
 //  not fount Error --------------------------------------
 
