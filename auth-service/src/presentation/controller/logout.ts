@@ -8,18 +8,28 @@ export const logoutController = (dependancies: IDependecies) => {
 
 		try {
 
-			res.cookie("access_token", "", { maxAge: 1 });
+			res.cookie("access_token", "", {
+				maxAge: 1, 
+				httpOnly: true,
+				sameSite: "none",
+				secure: true,
+			});
 
-			res.cookie("refresh_token", "", { maxAge: 1 });
-			
+			res.cookie("refresh_token", "", {
+				maxAge: 1, 
+				httpOnly: true,
+				sameSite: "none",
+				secure: true,
+			});
+
 			console.log('logout successfull')
-			
+
 			res.status(204).json({});
 
-		} catch (error : any) {
-            
+		} catch (error: any) {
+
 			next(error);
-            
+
 		}
 	};
 };

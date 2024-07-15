@@ -39,6 +39,7 @@ export default async (data: userEntity ) => {
 
 
 		await producer.sendBatch({topicMessages: message});
+		console.log('prodused by kafka update user')
 
 	} catch (error: any) {
 		console.error("kafka produce error:", error?.message);

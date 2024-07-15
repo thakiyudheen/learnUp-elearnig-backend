@@ -113,7 +113,7 @@ spec:
           service:
             name: learnup-course-service
             port:
-              number: 7001
+              number: 3004
       - path: /api/payment
         pathType: Prefix
         backend:

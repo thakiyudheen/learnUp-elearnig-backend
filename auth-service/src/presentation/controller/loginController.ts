@@ -4,58 +4,66 @@ import { IDependecies } from "../../application/Interfases/IDependencies";
 import { NextFunction, Request, Response } from "express";
 
 
-export const loginController = ( Dependencies : IDependecies ) => {
-   
-    const { useCases : { loginUseCase } } = Dependencies ;
-    
+export const loginController = (Dependencies: IDependecies) => {
+
+    const { useCases: { loginUseCase } } = Dependencies;
+
     return async (req: Request, res: Response, next: NextFunction) => {
         try {
             console.log('here reached------------------------------')
-            
-            const  { email , password } = req.body
 
-            const  user = await loginUseCase( Dependencies ).execute( email , password ) ;
+            const { email, password } = req.body
 
-            if(!user||user.isGauth){
+            const user = await loginUseCase(Dependencies).execute(email, password);
 
-              return res.status(200).json( { 
+            if (!user || user.isGauth) {
+
+                return res.status(200).json({
 
                     success: false,
                     data: {},
-                    message: " incorrect password or Email address ", 
-                } )
+                    message: " incorrect password or Email address ",
+                })
 
-               
+
             }
 
             const accessToken = generateAccessToken({
-                _id : String(user._id) ,
-                email : user.email ,
-                role : user.role  
+                _id: String(user._id),
+                email: user.email,
+                role: user.role
             })
 
             const refreshToken = generateRefreshToken({
-                _id : String(user._id) ,
-                email : user.email ,
-                role : user.role  
+                _id: String(user._id),
+                email: user.email,
+                role: user.role
             })
 
-            res.cookie('access_token' , accessToken , { httpOnly : true } )
+            res.cookie('access_token', accessToken, {
+                httpOnly: true,
+                sameSite: "none",
+                secure: true,
+            })
 
-            res.cookie('refresh_token' , refreshToken , { httpOnly : true } )
+            res.cookie('refresh_token', refreshToken, {
+                httpOnly: true,
+                sameSite: "none",
+                secure: true,
+            })
 
 
-           return  res.status(200).json( { 
+            return res.status(200).json({
 
-                    success: true,
-                    data: user,
-                    message: " User logged in successfully  ", 
+                success: true,
+                data: user,
+                message: " User logged in successfully  ",
 
-                } )
+            })
 
-        } catch ( error : any ) {
-           
-            console.log('error from  login Controller', error )
+        } catch (error: any) {
+
+            console.log('error from  login Controller', error)
             next(error)
         }
     }
