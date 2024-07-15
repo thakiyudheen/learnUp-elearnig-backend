@@ -32,7 +32,7 @@ const corsOptions = {
 
 // route setup -----------------------------------------
 
-app.get('/', (req: Request, res: Response) => {
+app.get('/api/chat/test', (req: Request, res: Response) => {
     res.status(200).json({
         message: "chat service ON!"
     });
@@ -50,7 +50,7 @@ app.use('/api/chat',routes( Dependencies ))
 //  not fount Error --------------------------------------
 
 app.all("*", (req: Request, res: Response) => {
-    res.status(404).json({ success: false, status: 404, message: "API Not found" });
+    res.status(404).json({ success: false, status: 404, message: "API Not found -->" });
 });
 
 
