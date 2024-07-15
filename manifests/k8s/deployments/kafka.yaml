@@ -137,7 +137,7 @@ spec:
             - containerPort: 9999
           env:
             - name: KAFKA_ADVERTISED_LISTENERS
-              value: PLAINTEXT://:9092,PLAINTEXT_HOST://:29092
+              value: PLAINTEXT://:9092,PLAINTEXT_HOST://kafka-host:29092
             - name: KAFKA_LISTENER_SECURITY_PROTOCOL_MAP
               value: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
             - name: KAFKA_INTER_BROKER_LISTENER_NAME
@@ -187,3 +187,6 @@ spec:
       protocol: TCP
       port: 9999
       targetPort: 9999
+
+
+
