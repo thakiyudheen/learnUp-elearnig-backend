@@ -36,7 +36,7 @@ app.get('/', (req: Request, res: Response) => {
 
 const routes = [
     {
-        context: "/api/auth",
+        context: "/api/auth/",
         target: "http://localhost:3001",
         changeOrigin: true,
     },
@@ -46,7 +46,7 @@ const routes = [
         changeOrigin: true,
     },
     {
-        context: "/api/user",
+        context: "/api/user/",
         target: "http://localhost:3003",
         changeOrigin: true,
     },
