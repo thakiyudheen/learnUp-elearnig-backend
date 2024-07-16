@@ -11,4 +11,4 @@ data:
   SEND_GRID_EMAIL: "thakeyudheen525@gmail.com"
   EMAIL_: "thakeyudheen525@gmail.com"
   PASSWORD_: "rkyj uxgv ywny riej"
-  CLIENT_URL: "http://localhost:5173/resetPassword/"
+  CLIENT_URL: "https://learn-up-elearning-frontend.vercel.app/resetPassword/"

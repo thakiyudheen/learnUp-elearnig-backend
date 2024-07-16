@@ -8,6 +8,6 @@ data:
   PORT: "3006"
   SERVICE: "chat Service"
   MONGO_URI: "mongodb+srv://thakeyudheen525:m6HkTA2eX8AstxcH@cluster0.bscnpma.mongodb.net/"
-  FRONTEND_URL: "https://learn-up-elearning-frontend-git-main-thakiyudheens-projects.vercel.app"
+  FRONTEND_URL: "https://learn-up-elearning-frontend.vercel.app"
   ACCESS_TOKEN_SECRET: "password"
   REFRESH_TOKEN_SECRET: "thisispassword"

@@ -9,6 +9,7 @@ data:
   SERVICE: "payment Service"
   STRIPE_SECRET_KEY: "sk_test_51PTgwvEvhq95htriundUwB6BCVtJp09sQ4QWGUTMQcpJlgHP2H1X6vciOfRLjBYyZySrpZvvIxocx8ICuKhITTYL00JguBXtKy"
   MONGO_URI: "mongodb+srv://thakeyudheen525:pDwA7oSoieORpHLG@cluster0.yqhrslc.mongodb.net/"
-  FRONTEND_URL: "http://localhost:5173"
+  FRONTEND_URL: "https://learn-up-elearning-frontend.vercel.app"
   ACCESS_TOKEN_SECRET: "password"
   REFRESH_TOKEN_SECRET: "thisispassword"
+ 

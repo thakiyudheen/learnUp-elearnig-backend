@@ -24,7 +24,7 @@ app.use(morgan('dev'));
 
 // cors setup ------------------------------------------
 const corsOptions = {
-    origin: 'https://learn-up-elearning-frontend-git-main-thakiyudheens-projects.vercel.app',
+    origin: 'https://learn-up-elearning-frontend.vercel.app',
     methods: ['GET', 'POST', 'PATCH', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization']
 };
