@@ -47,15 +47,18 @@ export const createSessinController = (dependencies: IDependecies) => {
       ];
 
       const successUrl = subscriptionType
-      ? `${process.env.FRONTEND_URL}/subscription-success`
-      : `${process.env.FRONTEND_URL}/payment-success`;
+      ? `https://learn-up-elearning-frontend.vercel.app/subscription-success`
+      : `https://learn-up-elearning-frontend.vercel.app/payment-success`
+      // ? `${process.env.FRONTEND_URL}/subscription-success`
+      // : `${process.env.FRONTEND_URL}/payment-success`;
 
       const session = await stripeInstance.checkout.sessions.create({
         payment_method_types: ["card"],
         line_items: data,
         mode: "payment",
         success_url: successUrl,
-        cancel_url: `${process.env.FRONTEND_URL}/payment-failed`,
+        cancel_url: `https://learn-up-elearning-frontend.vercel.app/payment-failed`,
+        // cancel_url: `${process.env.FRONTEND_URL}/payment-failed`,
       });
 
       const sessionData = subscriptionType ? { userId, sessionId: session.id, subscriptionType } : { userId, sessionId: session.id, courseId };

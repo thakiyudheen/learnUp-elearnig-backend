@@ -12,6 +12,17 @@ config()
 const app: Application = express();
 const PORT: number = Number(process.env.PORT) || 3001;
 
+// cors setup ------------------------------------------
+const corsOptions = {
+    origin: 'https://learn-up-elearning-frontend.vercel.app',
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
+    credentials: true,
+    
+};
+
+
+app.use(cors(corsOptions));
+app.options('*', cors(corsOptions));
 
 
 // using middlewares ----------------------------------
@@ -22,16 +33,6 @@ app.use(cookieParser());
 app.use(morgan('dev'));
 
 
-// cors setup ------------------------------------------
-const corsOptions = {
-    origin: 'https://learn-up-elearning-frontend.vercel.app',
-    methods: ['GET', 'POST', 'PATCH', 'DELETE', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization']
-};
-
-
-app.use(cors(corsOptions));
-app.options('*', cors(corsOptions));
 
 // route setup -----------------------------------------
 
