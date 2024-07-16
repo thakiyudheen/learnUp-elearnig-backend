@@ -33,7 +33,7 @@ const corsOptions = {
   };
   
   app.use(cors(corsOptions));
-
+  app.options('*', cors(corsOptions));
 // route setup -----------------------------------------
 
 app.get('/api/course/test', (req: Request, res: Response) => {
