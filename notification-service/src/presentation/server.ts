@@ -42,6 +42,7 @@ app.get('/api/notification/test', (req: Request, res: Response) => {
 });
 
 
+// app.use('/',routes( Dependencies ))
 app.use('/api/notification',routes( Dependencies ))
 
 //  not fount Error --------------------------------------

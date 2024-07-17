@@ -30,8 +30,8 @@ const socketEventHandler = (socket: Socket, io: SocketIOServer, context: { onlin
 
     // send and recieve message ------------------------
     socket.on("send-message", async (message: any) => {
-        const messages = await createMessage(message)
-        console.log('message received succesfully', messages)
+        // const messages = await createMessage(message)
+        console.log('message received succesfully', message)
         io.to(message.roomId).emit("receive-message", {
             ...message,
             createdAt: new Date().toISOString(),

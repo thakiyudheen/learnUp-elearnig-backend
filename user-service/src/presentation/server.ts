@@ -14,11 +14,10 @@ const PORT: number = Number(process.env.PORT) || 3001;
 
 // cors setup ------------------------------------------
 const corsOptions = {
-    origin: 'https://learn-up-elearning-frontend.vercel.app',
+    origin: ['https://learn-up-elearning-frontend.vercel.app','http://localhost:5173'],
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
     credentials: true,
-    
-};
+  };
 
 
 app.use(cors(corsOptions));
@@ -43,7 +42,8 @@ app.get('/api/user/test', (req: Request, res: Response) => {
 });
 
 
-app.use('/api/user', routes(Dependencies))
+app.use('/', routes(Dependencies))
+// app.use('/api/user', routes(Dependencies))
 
 //  not fount Error --------------------------------------
 

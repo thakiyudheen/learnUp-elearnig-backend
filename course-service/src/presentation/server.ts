@@ -23,15 +23,23 @@ app.use(cookieParser());
 app.use(morgan('dev'));
 
 
+// // cors setup ------------------------------------------
+// const corsOptions = {
+//     origin: 'https://learn-up-elearning-frontend.vercel.app',
+//     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
+//     allowedHeaders: ['DNT', 'User-Agent', 'X-Requested-With', 'If-Modified-Since', 'Cache-Control', 'Content-Type', 'Range'],
+//     credentials: true,
+//     exposedHeaders: ['Content-Length', 'Content-Range']
+//   };
+
 // cors setup ------------------------------------------
 const corsOptions = {
-    origin: 'https://learn-up-elearning-frontend.vercel.app',
+    origin: ['https://learn-up-elearning-frontend.vercel.app','http://localhost:5173'],
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
-    allowedHeaders: ['DNT', 'User-Agent', 'X-Requested-With', 'If-Modified-Since', 'Cache-Control', 'Content-Type', 'Range'],
     credentials: true,
-    exposedHeaders: ['Content-Length', 'Content-Range']
-  };
-  
+  }; 
+
+
   app.use(cors(corsOptions));
   app.options('*', cors(corsOptions));
 // route setup -----------------------------------------
@@ -43,7 +51,8 @@ app.get('/api/course/test', (req: Request, res: Response) => {
 });
 
 
-app.use('/api/course',routes( Dependencies ))
+app.use('/',routes( Dependencies ))
+// app.use('/api/course',routes( Dependencies ))
 
 //  not fount Error --------------------------------------
 

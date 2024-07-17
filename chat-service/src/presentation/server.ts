@@ -23,13 +23,13 @@ app.use(morgan('dev'));
 
 // cors setup ------------------------------------------
 const corsOptions = {
-    origin: 'https://learn-up-elearning-frontend.vercel.app',
+    origin: ['https://learn-up-elearning-frontend.vercel.app','http://localhost:5173'],
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
     credentials: true,
   };
   
   app.use(cors(corsOptions));
-  app.options('*', cors(corsOptions));
+//   app.options('*', cors(corsOptions));
 
 // route setup -----------------------------------------
 
@@ -46,6 +46,7 @@ socket(Server)
 console.log('this is calling');
 
 
+// app.use('/',routes( Dependencies ))
 app.use('/api/chat',routes( Dependencies ))
 
 //  not fount Error --------------------------------------
