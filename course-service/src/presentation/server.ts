@@ -51,8 +51,8 @@ app.get('/api/course/test', (req: Request, res: Response) => {
 });
 
 
-app.use('/',routes( Dependencies ))
-// app.use('/api/course',routes( Dependencies ))
+// app.use('/',routes( Dependencies ))
+app.use('/api/course',routes( Dependencies ))
 
 //  not fount Error --------------------------------------
 
