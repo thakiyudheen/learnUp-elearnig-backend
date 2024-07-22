@@ -6,7 +6,7 @@ import { IDependecies } from "../Interfases/IDependencies";
 
 export const getAllInstructorUseCase = ( Dependencies : IDependecies) => {
 
-    console.log('this is working ')
+    console.log('this is working kk')
     
     const {  repositories : { getAllInstructors } } = Dependencies
 
