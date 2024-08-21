@@ -12,11 +12,21 @@ const PORT: number = Number(process.env.PORT) || 3000;
 
 // CORS setup ---------------------------------
 
-const corsOptions: cors.CorsOptions = {
-    origin: "http://localhost:5173", 
-    methods: ["GET", "HEAD", "PUT", "PATCH", "POST", "DELETE"],
+// const corsOptions: cors.CorsOptions = {
+//     origin: "http://localhost:5173", 
+//     methods: ["GET", "HEAD", "PUT", "PATCH", "POST", "DELETE"],
+//     credentials: true,
+// };
+
+// cors setup ------------------------------------------
+const corsOptions = {
+    origin: ['https://learn-up-elearning-frontend.vercel.app','http://localhost:5173'],
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
     credentials: true,
-};
+  };
+  
+  app.use(cors(corsOptions));
+  app.options('*', cors(corsOptions));
 
 
 app.use(express.json());
@@ -37,39 +47,36 @@ app.get('/', (req: Request, res: Response) => {
 const routes = [
     {
         context: "/api/auth/",
-        target: "http://localhost:3001",
+        target: process.env.API_AUTH_TARGET,
         changeOrigin: true,
     },
     {
         context: "/api/notification",
-        target: "http://localhost:3002",
+        target: process.env.API_NOTIFICATION_TARGET,
         changeOrigin: true,
     },
     {
         context: "/api/user/",
-        target: "http://localhost:3003",
+        target: process.env.API_USER_TARGET,
         changeOrigin: true,
     },
     {
         context: "/api/course",
-        target: "http://localhost:3004",
+        target: process.env.API_COURSE_TARGET,
         changeOrigin: true,
     },
     {
         context: "/api/payment",
-        target: "http://localhost:3005",
+        target: process.env.API_PAYMENT_TARGET,
         changeOrigin: true,
     },
     {
         context: "/api/chat",
-        target: "http://localhost:3006",
+        target: process.env.API_CHAT_TARGET,
         changeOrigin: true,
     }
 ];
 
-routes.forEach((route) => {
-    app.use(route.context, proxy(route.target));
-});
 
 // Start server --------------------------------
 
