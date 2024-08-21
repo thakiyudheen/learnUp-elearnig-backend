@@ -34,6 +34,7 @@ export const googleAuth = (Dependencies: IDependecies) => {
             }
 
             const { email, given_name } = payload;
+            
 
             const user = await findUserByEmail(Dependencies).execute(email)
 
@@ -73,7 +74,7 @@ export const googleAuth = (Dependencies: IDependecies) => {
 
                 })
             } else {
-
+                
                 const signupData = {
                     email: email,
                     password: `${generateRandomString()}`,

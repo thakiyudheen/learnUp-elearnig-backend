@@ -3,6 +3,7 @@ import { IDependecies } from "../../application/Interfases/IDependencies";
 import { controller } from "../../presentation/controller";
 import { jwtMiddleware } from "jwt-middleware-learnup";
 import { roleMiddleware } from 'role-middleware'
+import { authLimiter } from "../../_lib/common/riteLimiter/limiter";
 
 
 
@@ -21,7 +22,7 @@ export const routes = ( Dependencies : IDependecies ) => {
 
     // find user By Email--------------------------
     router.route( '/exist_email/:email' ).get( findUserByEmail )
-
+    // authLimiter,
     // user login ---------------------------------
     router.route( '/login' ).post( login )
 
