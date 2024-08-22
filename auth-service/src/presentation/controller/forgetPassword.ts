@@ -14,7 +14,8 @@ export const forgetPasswordController = ( Dependencies : IDependecies ) => {
             const  { email } = req.params
 
             const  user = await findUserByEmail( Dependencies ).execute( email )
-
+            console.log('ok num reached');
+            
             if ( user?.isBlocked || user?.isGauth  ) {
 
                 return res.status(200).json({
@@ -30,6 +31,9 @@ export const forgetPasswordController = ( Dependencies : IDependecies ) => {
 
             // generate jwt token------------------------
             const token = await generateForgetPassword({email})
+
+            console.log('token crated',token);
+            
 
             //produce the forget pasword mail------------
             await forgetPasswordMailProducer({ email , token })
