@@ -12,7 +12,8 @@ export const forgetPasswordController = ( Dependencies : IDependecies ) => {
         try {
             console.log('here reached------------------------------')
             const  { email } = req.params
-
+            console.log(email,'------------------------------------=>');
+            
             const  user = await findUserByEmail( Dependencies ).execute( email )
             console.log('ok num reached');
             
