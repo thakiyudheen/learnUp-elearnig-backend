@@ -19,10 +19,10 @@ const corsOptions = {
     credentials: true,
   };
 
-
-app.use(cors(corsOptions));
-app.options('*', cors(corsOptions));
-
+  
+  app.use(cors(corsOptions));
+  app.options('*', cors(corsOptions));
+  
 
 // using middlewares ----------------------------------
 
@@ -34,6 +34,7 @@ app.use(morgan('dev'));
 
 
 // route setup -----------------------------------------
+console.log('this is we can deside',process.env.NODE_ENV);
 
 app.get('/api/user/test', (req: Request, res: Response) => {
     res.status(200).json({
